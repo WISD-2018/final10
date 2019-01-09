@@ -10,6 +10,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $table = 'users';
     /**
      * The attributes that are mass assignable.
      *
@@ -27,4 +28,24 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function score(){
+        return $this->hasMany(Score::class,'stu_id','id');
+    }
+
+    public function article(){
+        return $this->hasMany(Article::class,'stu_id','id');
+    }
+
+    public function message(){
+        return $this->hasMany(Message::class,'stu_id','id');
+    }
+
+    public function praise(){
+        return $this->hasMany(Praise::class,'stu_id','id');
+    }
+
+    public function problem(){
+        return $this->hasMany(Problem::class,'stu_id','id');
+    }
 }
