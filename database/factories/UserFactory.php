@@ -20,7 +20,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'email_verified_at' => now(),
         'password' => bcrypt('123456'),
         'permission' => 0,
-        'photo'=>'img/user/1.jpg',
+        'photo'=>'img/user/2.jpg',
         'remember_token' => str_random(10),
     ];
 });

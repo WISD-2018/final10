@@ -19,7 +19,7 @@ class UserTableSeeder extends Seeder
             'email'=>'admin@mail.com',
             'password'=>bcrypt('admin'),
             'permission'=>1,
-            'photo'=>'img/user/1.jpg'
+            'photo'=>'img/user/2.jpg'
         ]);
     }
 }
