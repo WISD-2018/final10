@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use Illuminate\Http\Request;
+use App\Article as ArticleEloquent;
 
 class ArticleController extends Controller
 {
@@ -14,7 +15,10 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $articles=ArticleEloquent::orderBy('created_at','DESC')->paginate(5);
+        $data=['articles'=>$articles];
+        return view('post',$data);
+
     }
 
     /**
