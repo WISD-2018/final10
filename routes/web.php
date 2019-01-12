@@ -15,10 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('post', function () {
-    return view('post');
-});
+Route::get('article', ['as' => 'article.index' , 'uses' => 'ArticleController@index']);
+
+Route::get('user', ['as' => 'user.index' , 'uses' => 'UserController@index']);
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
