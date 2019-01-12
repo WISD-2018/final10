@@ -20,7 +20,7 @@ class TestTableSeeder extends Seeder
     {
         $users = factory(UserEloquent::class, 20)->create();
         $restaurants = factory(RestaurantEloquent::class, 20)->create();
-        $articles = factory(ArticleEloquent::class, 20)->create()->each(function ($article) use ($restaurants, $users) {
+        $articles = factory(ArticleEloquent::class, 300)->create()->each(function ($article) use ($restaurants, $users) {
             $article->res_id = $restaurants[mt_rand(0, (count($restaurants) - 1))]->id;
             $article->stu_id = $users[mt_rand(1, (count($users) - 1))]->id;
             $article->save();
