@@ -21,6 +21,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
 
+
     <style>
         html body {
             background-color: #00324e;
@@ -36,40 +37,73 @@
             width: 100%;
             height: auto;
         }
-        .navbar-right{float:right!important;margin-right:-200px}
+        .navbar-right{float:right!important;margin-right:-190px}
+
+
+
+
 
     </style>
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light navbar-laravel " style="background-color:#006aa6;" >
+
+    <nav class="navbar sticky-top navbar-expand-md navbar-light navbar-laravel navbar-fixed-top" style="background-color:#006aa6;" >
         <div class="container">
 
-            <a class="navbar-brand text-white" href="{{ url('/') }}">
+            <a class="navbar-brand text-white" href="{{ action('ArticleController@index') }}">
                 {{ 'Michelin' }}
             </a>
 
-            <form class="form-inline" role="search" method="GET" action="">
+            <div>
+                <form  method="GET" action="">
 
-                <input class="form-control input-sm mr-sm-2"  type="search" placeholder="文章搜尋" aria-label="Search">
-                <button class="btn btn-primary  my-2 my-sm-0" type="submit">搜尋</button>
+                    <input class="form-control input-sm mr-sm-2"  type="search" placeholder="文章搜尋" aria-label="Search">
 
-            </form>
+                    <button class="btn btn-primary  my-2 my-sm-0" type="submit">搜尋</button>
+
+                </form>
+            </div>
+
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            @if(Auth::check())
-                <a href="">
-                    <div class="navbar-right">
-                        <div class="pic">
-                            <img src="{{ Auth::user()->photo }}">
-                        </div>
-                    </div>
-                </a>
-                <span class="text-white">{{ Auth::user()->name }}</span>
 
+
+
+
+            @if(Auth::check())
+
+                    <a href="{{ action('UserController@index') }}">
+                        <div class="navbar-right">
+                            <div class="pic">
+                                <img src="{{ Auth::user()->photo }}">
+                            </div>
+                        </div>
+                    </a>
+
+                    <ul class="nav nav-pills">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#one">one</a>
+                                <a class="dropdown-item" href="#two">two</a>
+                                <div role="separator" class="dropdown-divider"></div>
+
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
             @else
                 <div>
                     <span class="fa-stack fa-lg">
@@ -78,6 +112,17 @@
                     </span>
                     <sapn class="font-weight-bold text-white ">訪客身份</sapn>
                 </div>
+                <ul class="nav nav-pills">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#one">one</a>
+                            <a class="dropdown-item" href="#two">two</a>
+                            <div role="separator" class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                </ul>
+
             @endif
 
 
