@@ -26,6 +26,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
+Route::get('/chose', ['as' => 'chose.index' , 'uses' => 'UserController@chose']);
+
 
 //後台管理
 Route::get('ArticleBack', ['as' => 'ArticleBack.index' , 'uses' => 'ArticleController@back']);

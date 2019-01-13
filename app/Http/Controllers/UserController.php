@@ -14,6 +14,13 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public  function  chose()
+    {
+        if (Auth::user()->name === '管理者') {
+            return redirect('/ResBack');
+        }
+        return redirect('/article');
+    }
     public function back()
     {
         return view('back.UserBack');
