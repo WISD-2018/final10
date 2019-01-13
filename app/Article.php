@@ -8,6 +8,12 @@ class Article extends Model
 {
     protected $table = 'articles';
 
+    protected $fillable = [
+       'title',
+        'content',
+        'report',
+        'photo',
+    ];
 
     public function restaurant(){
         return $this->belongsTo(Restaurant::class,'res_id','id');

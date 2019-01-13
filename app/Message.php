@@ -10,7 +10,7 @@ class Message extends Model
 
 
     public function user(){
-        return $this->belongsTo(User::class,'id','stu_id');
+        return $this->belongsTo(User::class,'stu_id','id');
     }
 
     public function article(){
