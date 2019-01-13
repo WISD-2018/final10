@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\Article as ArticleEloquent;
+use App\User as UserEloquent;
 
 class UserController extends Controller
 {
@@ -13,11 +14,17 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function back()
+    {
+        return view('back.UserBack');
+    }
+
     public function index()
     {
-        $articles=ArticleEloquent::where('stu_id',Auth::user()->id)->paginate(5);
+        $users=UserEloquent::where('id',Auth::user()->id)->get();
+        $articles=ArticleEloquent::where('stu_id',Auth::user()->id)->get();
         $posts=ArticleEloquent::where('stu_id',Auth::user()->id);
-        $data=['articles'=>$articles,'posts'=>$posts];
+        $data=['articles'=>$articles,'posts'=>$posts,'users'=>$users];
         return view('user',$data);
     }
 

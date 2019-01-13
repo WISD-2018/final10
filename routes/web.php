@@ -23,3 +23,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+
+
+
+//後台管理
+Route::get('ArticleBack', ['as' => 'ArticleBack.index' , 'uses' => 'ArticleController@back']);
+Route::get('UserBack', ['as' => 'UserBack.index' , 'uses' => 'UserController@back']);
+Route::get('ResBack', ['as' => 'ResBack.index' , 'uses' => 'RestaurantController@back']);
+Route::get('QuestionBack', ['as' => 'QuestionBack.index' , 'uses' => 'ProblemController@back']);

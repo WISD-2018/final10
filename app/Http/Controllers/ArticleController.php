@@ -13,6 +13,11 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function back()
+    {
+        return view('back.ArticleBack');
+    }
+
     public function index()
     {
         $articles=ArticleEloquent::orderBy('created_at','DESC')->paginate(5);

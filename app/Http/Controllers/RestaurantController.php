@@ -12,6 +12,11 @@ class RestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function back()
+    {
+        return view('back.ResBack');
+    }
+
     public function index()
     {
         //

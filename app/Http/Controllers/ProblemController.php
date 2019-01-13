@@ -12,6 +12,11 @@ class ProblemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function back()
+    {
+        return view('back.QuestionBack');
+    }
+
     public function index()
     {
         //
