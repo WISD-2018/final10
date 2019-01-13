@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 //貼文畫面
 Route::get('article', ['as' => 'article.index' , 'uses' => 'ArticleController@index']);
-
+Route::get('BestArticle', ['as' => 'article.BestIndex' , 'uses' => 'ArticleController@BestIndex']);
 
 
 Route::get('user', ['as' => 'user.index' , 'uses' => 'UserController@index']);

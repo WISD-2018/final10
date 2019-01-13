@@ -30,7 +30,13 @@ class ArticleController extends Controller
         $data=['articles'=>$articles];
         return view('back.ArticleBack',$data);
     }
+    public function BestIndex()
+    {
+        $articles=ArticleEloquent::orderBy('created_at','DESC')->paginate(18);
+        $data=['articles'=>$articles];
+        return view('main.BestPost',$data);
 
+    }
     public function index()
     {
         $articles=ArticleEloquent::orderBy('created_at','DESC')->paginate(18);
