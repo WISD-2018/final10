@@ -109,10 +109,22 @@
                     <div class="card-body" style="padding-top:252px;">
                         <label class=" col-md-12" style="letter-spacing:3px; text-align: center;font-family: 微軟正黑體 ; font-size: 20px;color:#FFFFFF;padding: 1px 1px 1px 1px;margin-top: 5px;background-color: transparent;border-style: none;">
 
-                            @foreach($users as $user)
-                                {{$user->praise->count()}}
+
+                            @php
+                                $num=0;
+                            @endphp
+
+                            @foreach($articles as $article)
+                                @foreach($praises as $praise)
+                                    @if($article->id === $praise->art_id)
+                                        @php
+                                            $num=$num+1;
+                                        @endphp
+                                    @endif
+                                @endforeach
                             @endforeach
 
+                            {{ $num }}
                         </label>
                         <label class=" col-md-12" style="text-align: center;font-family:微軟正黑體 ;font-size: 25px;color:#FFFFFF;padding: 1px 1px 1px 1px;background-color: transparent;border-style: none;">
                             {{ '讚數' }}
@@ -123,7 +135,7 @@
             {{--------------------------------------------------------------}}
 
             <div class="row justify-content-center">
-                {{--只有1或2筆板會跑掉--}}
+                {{--只有1筆板會跑掉--}}
                 @foreach ($articles as $article)
                     <div class="col-md-4">
                         <div class="card sticky-action">
