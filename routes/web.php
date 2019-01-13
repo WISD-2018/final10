@@ -14,8 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+//貼文畫面
 Route::get('article', ['as' => 'article.index' , 'uses' => 'ArticleController@index']);
+
+
 
 Route::get('user', ['as' => 'user.index' , 'uses' => 'UserController@index']);
 

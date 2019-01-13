@@ -33,9 +33,9 @@ class ArticleController extends Controller
 
     public function index()
     {
-        $articles=ArticleEloquent::orderBy('created_at','DESC')->paginate(5);
+        $articles=ArticleEloquent::orderBy('created_at','DESC')->paginate(18);
         $data=['articles'=>$articles];
-        return view('post',$data);
+        return view('main.post',$data);
 
     }
 
