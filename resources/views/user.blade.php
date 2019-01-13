@@ -108,7 +108,11 @@
                 <div class="card" style="border-style: none;background-color:transparent;">
                     <div class="card-body" style="padding-top:252px;">
                         <label class=" col-md-12" style="letter-spacing:3px; text-align: center;font-family: 微軟正黑體 ; font-size: 20px;color:#FFFFFF;padding: 1px 1px 1px 1px;margin-top: 5px;background-color: transparent;border-style: none;">
-                            {{ '5645' }}
+
+                            @foreach($users as $user)
+                                {{$user->praise->count()}}
+                            @endforeach
+
                         </label>
                         <label class=" col-md-12" style="text-align: center;font-family:微軟正黑體 ;font-size: 25px;color:#FFFFFF;padding: 1px 1px 1px 1px;background-color: transparent;border-style: none;">
                             {{ '讚數' }}
@@ -119,28 +123,42 @@
             {{--------------------------------------------------------------}}
 
             <div class="row justify-content-center">
+                {{--只有1或2筆板會跑掉--}}
                 @foreach ($articles as $article)
                     <div class="col-md-4">
                         <div class="card sticky-action">
 
                             <div class="card-image waves-effect waves-block waves-light pic3">
                                 <img class="activator" src="{{ $article->photo }}">
+
                             </div>
                             <div class="card-action">
+
                                 <span class="card-title activator grey-text text-darken-4">{{ $article->title }}</span>
+
+                                <label class=" col-md-12" style="letter-spacing:3px; text-align: right;font-family: 微軟正黑體 ; font-size: 10px;background-color: transparent;border-style: none;">
+                                    {{ $article->created_at->toDateString() }}
+                                </label>
+
                                 <!-- Dropdown Trigger -->
+                                <hr style="margin:10px 0;" />
 
-                                <ul id="dropdown1" class="dropdown-content">
-                                    <li><a href="#!">one</a></li>
-                                    <li><a href="#!">two</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#!">three</a></li>
-                                </ul>
 
-                                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle right" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-                                <p><a href="#">This is a link</a></p>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">編輯文章</a>
+                                        <a class="dropdown-item" href="#">刪除文章</a>
+                                    </div>
+                                </div>
+
+                                <p> {{ $article->praise->count() }} {{ '人按讚' }} &nbsp;&nbsp; {{ $article->message->count() }} {{ '則留言' }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#">詳細閱讀</a></p>
+
                             </div>
+
+
                             <div class="card-reveal">
                                 <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
                                 <p>{{ $article->content }}</p>
@@ -149,64 +167,8 @@
                         </div>
                     </div>
                 @endforeach
-
-
             </div>
-                @foreach ($articles as $article)
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="container-fluid" style="padding:0;">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h1 style="margin-top:0;">{{ $article->title }}</h1>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        @if($article->res_id!=null)
-                                            <span class="badge" style="margin-left:10px;">{{ $article->restaurant->name }}</span>
-                                        @endif
-                                    </div>
-                                    <div class="col-md-4 text-right">
-                                        {{ $article->created_at->toDateString() }}
-                                    </div>
-                                </div>
-                                <hr style="margin:10px 0;" />
-                                <div class="row">
-                                    <div class="col-md-12" style="height:100px;overflow:hidden;">
-                                        {{ $article->content }}
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:10px;">
-                                    <div class="col-md-8">
-
-                                                <form method="POST" action="">
-                                                    <span>{{ $article->message->count() }}&nbsp;則回應</span>
-                                                    <span style="padding-left: 10px;">
-                                                    <a class="btn btn-xs btn-primary" href="">
-                                                        <i class="glyphicon glyphicon-pencil"></i>
-                                                        <span style="padding-left: 5px;">編輯文章</span>
-                                                    </a>
-                                                        {{ csrf_field() }}
-                                                        <input type="hidden" name="_method" value="DELETE" />
-                                                    <button type="submit" class="btn btn-xs btn-danger">
-                                                        <i class="glyphicon glyphicon-trash"></i>
-                                                        <span style="padding-left: 5px;">刪除文章</span>
-                                                    </button>
-                                                </span>
-                                                </form>
-
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a href="" class="pull-right">繼續閱讀...</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-
-                    {{ $articles->render() }}
+                    {{--{{ $articles->render() }}--}}
 
         </div>
     </div>
