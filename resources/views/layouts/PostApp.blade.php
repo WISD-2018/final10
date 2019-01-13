@@ -41,8 +41,6 @@
 
 
 
-
-
     </style>
 </head>
 <body>
@@ -55,22 +53,15 @@
                 {{ 'Michelin' }}
             </a>
 
-            <div>
-                <form  method="GET" action="">
+            {{--<form class="form-inline" role="search" method="GET" action="">--}}
 
-                    <input class="form-control input-sm mr-sm-2"  type="search" placeholder="文章搜尋" aria-label="Search">
+                    {{--<input class="form-control input-sm mr-sm-2 hidden"  type="search" placeholder="文章搜尋" aria-label="Search">--}}
+                    {{--<button class="btn btn-primary  my-2 my-sm-0" type="submit">搜尋</button>--}}
+            {{--</form>--}}
 
-                    <button class="btn btn-primary  my-2 my-sm-0" type="submit">搜尋</button>
-
-                </form>
-            </div>
-
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-
+            {{--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">--}}
+                {{--<span class="navbar-toggler-icon"></span>--}}
+            {{--</button>--}}
 
 
 
@@ -88,14 +79,14 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#one">one</a>
-                                <a class="dropdown-item" href="#two">two</a>
+                                <a class="dropdown-item" href="#one">新增文章</a>
+                                <a class="dropdown-item" href="#two">編輯個人資料</a>
                                 <div role="separator" class="dropdown-divider"></div>
 
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                    {{ __('登出會員') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -116,9 +107,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"></a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#one">one</a>
-                            <a class="dropdown-item" href="#two">two</a>
-                            <div role="separator" class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ route('login') }}">登入會員</a>
                         </div>
                     </li>
                 </ul>
