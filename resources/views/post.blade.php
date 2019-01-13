@@ -8,6 +8,8 @@
             <div class="col-xs-8">
 
 
+
+
                 @foreach ($articles as $article)
                     <div class="card">
                         <div class="card-body">

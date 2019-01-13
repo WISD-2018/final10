@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Article;
 use Illuminate\Http\Request;
 use App\Article as ArticleEloquent;
+use App\Message as MessageEloquent;
+use App\Praise as PraiseEloquent;
 
 class ArticleController extends Controller
 {
@@ -13,9 +15,20 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function check($id)
+    {
+        $article=ArticleEloquent::findOrFail($id);
+        $articles=ArticleEloquent::where('id',$article->id)->get();
+        $messages=MessageEloquent::where('art_id',$article->id)->get();
+        $praises=PraiseEloquent::where('art_id',$article->id)->get();
+        $data=['articles'=>$articles,'messages'=>$messages,'praises'=>$praises];
+        return view('back.ArticleBackCheck',$data);
+    }
     public function back()
     {
-        return view('back.ArticleBack');
+        $articles=ArticleEloquent::where('report',1)->get();
+        $data=['articles'=>$articles];
+        return view('back.ArticleBack',$data);
     }
 
     public function index()
@@ -76,9 +89,12 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update($id)
     {
-        //
+        $article=ArticleEloquent::findOrFail($id);
+        $article->update(['report'=>0]);
+
+        return redirect()->route('ArticleBack.index');
     }
 
     /**
@@ -87,8 +103,14 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy($id)
     {
-        //
+        $article=ArticleEloquent::findOrFail($id);
+        $article->delete();
+        $Messages=MessageEloquent::where('art_id',$article->id);
+        $Messages->delete();
+        $Praises=PraiseEloquent::where('art_id',$article->id);
+        $Praises->delete();
+        return redirect()->route('ArticleBack.index');
     }
 }
