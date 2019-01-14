@@ -20,6 +20,9 @@ Route::get('BestArticle', ['as' => 'article.BestIndex' , 'uses' => 'ArticleContr
 Route::get('index/{id}', ['as' => 'article.small' , 'uses' => 'ArticleController@small']);
 
 
+//新增貼文
+Route::get('create', ['as' => 'article.create' , 'uses' => 'ArticleController@create']);
+//Route::get('article', ['as' => 'article.store' , 'uses' => 'ArticleController@store']);
 
 
 
