@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use App\Praise;
 use Illuminate\Http\Request;
-
+//use App\Article as ArticleEloquent;
+//use App\Praise as PraiseEloquent;
 class PraiseController extends Controller
 {
     /**
@@ -12,6 +13,15 @@ class PraiseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function click($id)
+    {
+        Praise::create([
+            'art_id' => $id,
+            'stu_id' => Auth::user()->id,
+            'praise' => 1,
+        ]);
+        return redirect()->route('article.small',$id);
+    }
     public function index()
     {
         //
