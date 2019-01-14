@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Article as ArticleEloquent;
 use App\Message as MessageEloquent;
 use App\Praise as PraiseEloquent;
+use App\Restaurant as RestaurantEloquent;
 
 class ArticleController extends Controller
 {
@@ -61,7 +62,9 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        $restaurants=RestaurantEloquent::orderBy('name','ASC')->get();
+        return View('article.create',['restaurants'=>$restaurants]);
+
     }
 
     /**
@@ -72,7 +75,8 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Article::create($request->all());
+        return redirect()->route('main.index');
     }
 
     /**
@@ -128,4 +132,5 @@ class ArticleController extends Controller
         $Praises->delete();
         return redirect()->route('ArticleBack.index');
     }
+
 }

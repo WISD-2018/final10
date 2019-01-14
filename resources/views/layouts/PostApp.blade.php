@@ -99,7 +99,7 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#one">新增文章</a>
+                                        <a class="dropdown-item" href="{{ route('article.create') }}">新增文章</a>
                                         <a class="dropdown-item" href="#two">編輯個人資料</a>
                                         <div role="separator" class="dropdown-divider"></div>
 
