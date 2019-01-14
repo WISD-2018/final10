@@ -38,9 +38,6 @@
             height: auto;
         }
         .navbar-right{float:right!important;margin-right:-190px}
-
-
-
     </style>
 </head>
 <body>
@@ -84,7 +81,7 @@
                                 </li>
                                 {{-----------------------------------------}}
                                 <li class="nav-item" style="margin-right: 50px">
-                                    <a class="nav-link text-white" style=" font-weight:bold; font-family:微軟正黑體;" href="#">
+                                    <a class="nav-link text-white" style=" font-weight:bold; font-family:微軟正黑體;" href="{{ route('restaurant.index') }}">
                                         餐廳搜尋
                                     </a>
                                 </li>
@@ -134,13 +131,13 @@
                             <ul class="navbar-nav ml-auto">
 
                                 <li class="nav-item ">
-                                    <a class="nav-link text-white" style=" font-weight:bold; font-family:微軟正黑體;" href="#">
+                                    <a class="nav-link text-white" style=" font-weight:bold; font-family:微軟正黑體;" href="{{ route('article.index') }}">
                                         所有文章
                                     </a>
                                 </li>
                                 {{-----------------------------------------}}
                                 <li class="nav-item" style="margin-right: 50px">
-                                    <a class="nav-link text-white" style=" font-weight:bold; font-family:微軟正黑體;" href="#">
+                                    <a class="nav-link text-white" style=" font-weight:bold; font-family:微軟正黑體;" href="{{ route('restaurant.index') }}">
                                         餐廳搜尋
                                     </a>
                                 </li>

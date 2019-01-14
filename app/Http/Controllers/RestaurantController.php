@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Restaurant;
 use Illuminate\Http\Request;
+use App\Restaurant as RestaurantEloquent;
+use App\Score as ScoreEloquent;
 
 class RestaurantController extends Controller
 {
@@ -19,7 +21,10 @@ class RestaurantController extends Controller
 
     public function index()
     {
-        //
+        $restaurants=RestaurantEloquent::orderBy('created_at','DESC')->get();
+        $scores=ScoreEloquent::orderBy('created_at','DESC')->get();
+        $data=['restaurants'=>$restaurants,'scores'=>$scores];
+        return view('restaurant.index',$data);
     }
 
     /**

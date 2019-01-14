@@ -19,6 +19,8 @@ Route::get('article', ['as' => 'article.index' , 'uses' => 'ArticleController@in
 Route::get('BestArticle', ['as' => 'article.BestIndex' , 'uses' => 'ArticleController@BestIndex']);
 Route::get('index/{id}', ['as' => 'article.small' , 'uses' => 'ArticleController@small']);
 
+//餐廳
+Route::get('restaurant', ['as' => 'restaurant.index' , 'uses' => 'RestaurantController@index']);
 
 
 
