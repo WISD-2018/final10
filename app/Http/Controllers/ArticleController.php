@@ -15,6 +15,14 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function  small($id)
+    {
+        $article=ArticleEloquent::findOrFail($id);
+        $articles=ArticleEloquent::where('id',$article->id)->get();
+        $messages=MessageEloquent::where('art_id',$article->id)->get();
+        $data=['articles'=>$articles,'messages'=>$messages];
+        return view('main.index',$data);
+    }
     public function check($id)
     {
         $article=ArticleEloquent::findOrFail($id);
