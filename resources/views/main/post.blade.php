@@ -28,7 +28,7 @@
                 </h1>
             </div>
             <div class="col-md-3" style="margin-top: 23px;">
-                <button type="button" class="btn btn-primary btn-lg" style=" font-weight:bold; font-family:微軟正黑體;"><a href="{{ route('article.index') }}">最新貼文</a></button>
+                <button type="button" class="btn btn-primary btn-lg" style=" font-weight:bold; font-family:微軟正黑體;"><a href="{{ route('article.index') }}"><span style="color:orange;">最新貼文</span></a></button>
                 <button type="button" class="btn btn-warning btn-lg" style=" font-weight:bold; font-family:微軟正黑體;"><a href="{{ route('article.BestIndex') }}">人氣貼文</a></button>
             </div>
 
@@ -51,10 +51,10 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#"><img class="card-img-top" src="{{$article->photo}}" alt=""></a>
+                    <a href="{{ route('article.small',$article->id) }}"><img class="card-img-top" src="{{$article->photo}}" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title">
-                            <a href="#">{{substr($article->title,0,20)}}</a>
+                            <a href="{{ route('article.small',$article->id) }}">{{substr($article->title,0,20)}}</a>
                         </h4>
                         <p class="card-text">{{substr($article->content,0,75)}}{{'............'}}</p>
                         <hr style="margin:10px 0;" />
