@@ -66,67 +66,105 @@
 
 
             @if(Auth::check())
+                <nav class="navbar navbar-expand-lg   fixed-top" style="background-color:#006aa6;">
+                    <div class="container">
+                        <a class="navbar-brand text-white" style=" font-weight:bold; font-family:微軟正黑體;" href="{{ action('ArticleController@index') }}">
+                            {{ 'Michelin' }}
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarResponsive">
+                            <ul class="navbar-nav ml-auto">
 
-                    <a href="{{ action('UserController@index') }}">
-                        <div class="navbar-right">
-                            <div class="pic">
-                                <img src="{{ Auth::user()->photo }}">
-                            </div>
-                        </div>
-                    </a>
+                                <li class="nav-item ">
+                                    <a class="nav-link text-white" style=" font-weight:bold; font-family:微軟正黑體;" href="{{ route('article.index') }}">
+                                        所有文章
+                                    </a>
+                                </li>
+                                {{-----------------------------------------}}
+                                <li class="nav-item" style="margin-right: 50px">
+                                    <a class="nav-link text-white" style=" font-weight:bold; font-family:微軟正黑體;" href="#">
+                                        餐廳搜尋
+                                    </a>
+                                </li>
+                                {{-----------------------------------------}}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ action('UserController@index') }}">
+                                        <div style="margin-top: 10px">
+                                            <div class="pic">
+                                                <img src="{{ Auth::user()->photo }}">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                {{-----------------------------------------}}
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#one">新增文章</a>
+                                        <a class="dropdown-item" href="#two">編輯個人資料</a>
+                                        <div role="separator" class="dropdown-divider"></div>
 
-                    <ul class="nav nav-pills">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#one">新增文章</a>
-                                <a class="dropdown-item" href="#two">編輯個人資料</a>
-                                <div role="separator" class="dropdown-divider"></div>
-
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('登出會員') }}
-                                </a>
+                                            {{ __('登出會員') }}
+                                        </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                    </ul>
-            @else
-                <div>
-                    <span class="fa-stack fa-lg">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-user fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <sapn class="font-weight-bold text-white ">訪客身份</sapn>
-                </div>
-                <ul class="nav nav-pills">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"></a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ route('login') }}">登入會員</a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                    </li>
-                </ul>
+                    </div>
+                </nav>
+            @else
+                <nav class="navbar navbar-expand-lg   fixed-top" style="background-color:#006aa6;">
+                    <div class="container">
+                        <a class="navbar-brand text-white" style=" font-weight:bold; font-family:微軟正黑體;" href="{{ action('ArticleController@index') }}">
+                            {{ 'Michelin' }}
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarResponsive">
+                            <ul class="navbar-nav ml-auto">
 
+                                <li class="nav-item ">
+                                    <a class="nav-link text-white" style=" font-weight:bold; font-family:微軟正黑體;" href="#">
+                                        所有文章
+                                    </a>
+                                </li>
+                                {{-----------------------------------------}}
+                                <li class="nav-item" style="margin-right: 50px">
+                                    <a class="nav-link text-white" style=" font-weight:bold; font-family:微軟正黑體;" href="#">
+                                        餐廳搜尋
+                                    </a>
+                                </li>
+                                {{-----------------------------------------}}
+                                <li class="nav-item">
+                                    <a class="nav-link">
+                                       <span class="fa-stack fa-lg">
+                                           <i class="fa fa-circle fa-stack-2x"></i>
+                                           <i class="fa fa-user fa-stack-1x fa-inverse"></i>
+                                       </span>
+                                    </a>
+                                </li>
+                                {{-----------------------------------------}}
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{'訪客身分' }}</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{{ route('login') }}">登入會員</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             @endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
     </nav>
     <main class="py-4">
