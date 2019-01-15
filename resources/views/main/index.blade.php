@@ -12,10 +12,12 @@
                         @foreach($articles as $article)
                         <img class="card-img-top img-fluid" src={{$article->photo}} >
                         <div class="card-body">
-                            <h3 class="card-title">{{$article->title}}</h3>
+                            
+                            <h3 class="card-title">{{'主題：'}}{{$article->title}}</h3>
 
                             <div class="row">
-                                <div class="col-md-6" style="margin-top: 30px;margin-bottom: 20px">
+                                <div class="col-md-6" style="margin-top: 10px;margin-bottom: 20px">
+                                    <span style="font-size:0.6cm;">{{'發文人：'}}</span>
                                     {{$article->user->name}}
                                     <br>
 
@@ -24,7 +26,7 @@
                                 </div>
 
                                 <div class="col-md-6" style="margin-top: 10px;margin-bottom: 20px">
-                                    <span style="font-size:1.2cm;">{{'At'}}</span>
+                                    <span style="font-size:0.6cm;">{{'餐廳：'}}</span>
 
                                     {{$article->restaurant->name}}
                                 </div>
