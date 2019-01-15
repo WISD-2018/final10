@@ -9,6 +9,7 @@ $factory->define(App\Article::class, function (Faker $faker) {
         'title'=> $faker->sentence(mt_rand(3, 10)),
         'content' => $faker->paragraphs(mt_rand(3, 6),true),
         'report'=> rand(0,1) ,
-        'photo'=>$faker->imageUrl($width = 640, $height = 480, 'food')
+        'photo'=>$faker->imageUrl($width = 640, $height = 480, 'food'),
+        'created_at' => $faker->dateTimeBetween('-1 month', '+1 days'),
     ];
 });
