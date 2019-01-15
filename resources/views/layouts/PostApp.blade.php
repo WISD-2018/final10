@@ -66,7 +66,7 @@
                 <nav class="navbar navbar-expand-lg   fixed-top" style="background-color:#006aa6;">
                     <div class="container">
                         <a class="navbar-brand text-white" style=" font-weight:bold; font-family:微軟正黑體;" href="{{ action('ArticleController@index') }}">
-                            {{ 'Michelin' }}
+                            {{ '勤益-米其林星級評鑑網' }}
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -101,6 +101,7 @@
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="{{ route('article.create') }}">新增文章</a>
                                         <a class="dropdown-item" href="#two">編輯個人資料</a>
+                                        <a class="dropdown-item" href="#two">回報問題</a>
                                         <div role="separator" class="dropdown-divider"></div>
 
                                         <a class="dropdown-item" href="{{ route('logout') }}"
