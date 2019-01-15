@@ -41,7 +41,10 @@
                                 <td>{{ $ss->permission }}</td>
                                 <td>{{ $ss->photo }}</td>
                                 <td>
-
+                                    <form action="{{ route('UserBack.destroy', $ss->id) }}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <button class="btn btn-success">刪除</button></form>
                                 </td>
                             </tr>
                         @endforeach
