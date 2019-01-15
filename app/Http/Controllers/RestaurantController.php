@@ -16,7 +16,9 @@ class RestaurantController extends Controller
      */
     public function back()
     {
-        return view('back.ResBack');
+        $restaurants =Restaurant::orderBy('created_at','DESC')->get();
+        $data=['restaurants'=>$restaurants];
+        return view('back.ResBack',$data);
     }
 
     public function index()
