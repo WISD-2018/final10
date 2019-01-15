@@ -10,20 +10,17 @@
                     <div class="panel-heading">
                         新文章
                     </div>
-                    @if(Auth::check())
                     <div class="panel-body">
                         <div class="container-fluid" style="padding:0;">
-                            <form style="margin-top: 20px" class="form-horizontal" method="POST" action="">
+                            <form style="margin-top: 20px" class="form-horizontal" method="POST" action="{{action('ArticleController@store')}}">
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <label for="student" class="col-sm-2 control-label">圖片</label>
-                                    <form method="POST" action="" enctype="multipart/form-data">
                                         {{ csrf_field() }}
                                         <div class="form-group" style="padding-top:10px;">
                                             <label for="photo">選擇圖片</label>
                                             <input type="file" id="photo" name="photo" accept="image/*">
                                         </div>
-                                    </form>
                                 </div>
                                 <div class="form-group">
                                     <label for="title" class="col-sm-2 control-label">標題</label>
@@ -63,7 +60,6 @@
                             </form>
                         </div>
                     </div>
-                    @endif
                 </div>
             </div>
         </div>
