@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use \Carbon\Carbon as Carbon;
 use App\Article;
 use Illuminate\Http\Request;
 use App\Article as ArticleEloquent;
@@ -79,7 +79,19 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        Article::create($request->all());
+        $file = $request->file('photo');
+        $destinationPath = 'img/article';
+        $ext = $file -> getClientOriginalExtension();
+        $fileName = (Carbon::now()->timestamp).'.'.$ext;
+        $file->move(public_path().'/'.$destinationPath, $fileName);
+        Article::create([
+            'res_id' => $request['restaurant'],
+            'stu_id' => Auth::user()->id,
+            'title' => $request['title'],
+            'content'=>$request['content'],
+            'report' =>0,
+             'photo' =>$destinationPath.'/'.$fileName,
+        ]);
         return redirect()->route('article.index');
     }
 

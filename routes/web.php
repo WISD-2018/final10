@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-//貼文畫面
+//貼文主畫面
 Route::get('article', ['as' => 'article.index' , 'uses' => 'ArticleController@index']);
 Route::get('BestArticle', ['as' => 'article.BestIndex' , 'uses' => 'ArticleController@BestIndex']);
 Route::get('index/{id}', ['as' => 'article.small' , 'uses' => 'ArticleController@small']);
