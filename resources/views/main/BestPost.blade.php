@@ -1,4 +1,4 @@
-@extends('layouts.PostApp')
+@extends('layouts.PostApp2')
 
 @section('content')
 <head>

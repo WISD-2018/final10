@@ -1,4 +1,4 @@
-@extends('layouts.PostApp')
+@extends('layouts.PostApp2')
 <head>
     <style>
         .pic {
