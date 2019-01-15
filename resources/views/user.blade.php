@@ -137,7 +137,7 @@
             <div class="row justify-content-center">
                 {{--只有1筆板會跑掉--}}
                 @foreach ($articles as $article)
-                    <div class="col-md-7">
+                    <div class="col-md-4">
                         <div class="card sticky-action">
 
                             <div class="card-image waves-effect waves-block waves-light pic3">
@@ -146,7 +146,7 @@
                             </div>
                             <div class="card-action">
 
-                                <span class="card-title activator grey-text text-darken-4">{{ $article->title }}</span>
+                                <span class="card-title activator grey-text text-darken-4">{{substr( $article->title,0,20)}}</span>
 
                                 <label class=" col-md-12" style="letter-spacing:3px; text-align: right;font-family: 微軟正黑體 ; font-size: 10px;background-color: transparent;border-style: none;">
                                     {{ $article->created_at->toDateString() }}
@@ -183,7 +183,9 @@
                     </div>
                 @endforeach
             </div>
-                    {{--{{ $articles->render() }}--}}
+            <ul class="pagination justify-content-center">
+                {{ $articles->render() }}
+            </ul>
 
         </div>
     </div>

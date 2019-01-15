@@ -34,7 +34,7 @@ class UserController extends Controller
     {
         $praises=PraiseEloquent::orderBy('id','ASC')->get();
         $users=UserEloquent::where('id',Auth::user()->id)->get();
-        $articles=ArticleEloquent::where('stu_id',Auth::user()->id)->get();
+        $articles=ArticleEloquent::where('stu_id',Auth::user()->id)->paginate(12);
         $posts=ArticleEloquent::where('stu_id',Auth::user()->id);
         $data=['articles'=>$articles,'posts'=>$posts,'users'=>$users,'praises'=>$praises];
         return view('user',$data);
