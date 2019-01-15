@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ArticleController@index');
+
 //貼文主畫面
 Route::get('article', ['as' => 'article.index' , 'uses' => 'ArticleController@index']);
 Route::get('BestArticle', ['as' => 'article.BestIndex' , 'uses' => 'ArticleController@BestIndex']);
