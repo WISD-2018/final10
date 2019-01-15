@@ -94,22 +94,24 @@
                             <hr style="margin:10px 0;" />
                         @endforeach
                     </div>
+                    <ul class="pagination justify-content-center">
+                        {{ $messages->render() }}
+                    </ul>
 
-                    <div class="card-header col-md-12 " style="padding:20px 0;">
+                    <div class="card-footer col-md-12 " style="padding:20px 0;">
                         <div class="col-md-10 col-md-offset-1">
                             @if(Auth::check())
 
                                 <form  class="col-md-12" method="POST" action="{{ route('message.store',['article'=>$article->id]) }}">
                                     {{ csrf_field() }}
                                     <div class="form-group">
-                                        <label> 學 生 ：</label>{{ Auth::user()->name }}
-
+                                        <label style=" font-weight:bold; font-family:微軟正黑體;"> 你是：</label>{{ Auth::user()->name }}
                                     </div>
                                     <label for="content">留言</label>
                                     <div class="form-group">
                                         <textarea name="content" class="form-control" rows="4" style="resize:vertical;"></textarea>
                                     </div>
-                                    <div class="col-md-8 offset-md-4">
+                                    <div class="col-md-8 offset-md-10">
                                     <button type="submit" class="btn btn-primary">我要留言</button>
                                     </div>
                                 </form>
