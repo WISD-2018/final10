@@ -87,6 +87,21 @@
                     </div>
                     <div class="card-body">
                         @foreach($messages as $message)
+                            <div>
+                                @if(Auth::check())
+                                    @if(Auth::user()->id == $message->stu_id)
+                                        <form method="POST"  action="{{ route('message.destroys',['article'=>$article->id,'message'=>$message->id] )}}">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" name="_method" value="DELETE" />
+                                            <button type="submit"  class="btn btn-xs btn-danger pull-right">
+                                                <i class="glyphicon glyphicon-trash"></i>
+                                                <span style="padding-left:5px;">刪除留言</span>
+                                            </button>
+                                        </form>
+                                    @endif
+                                @endif
+                            </div>
+
                             <p>{{$message->content}}</p>
                             <small class="text-muted">Posted by {{$message->user->name}} on {{$message->created_at}}</small>
                             <hr style="margin:10px 0;" />
