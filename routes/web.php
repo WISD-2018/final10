@@ -28,9 +28,9 @@ Route::post('index/{id}', ['as' => 'praise.click' , 'uses' => 'PraiseController@
 
 //新增貼文
 Route::get('create', ['as' => 'article.create' , 'uses' => 'ArticleController@create']);
-//Route::get('article', ['as' => 'article.store' , 'uses' => 'ArticleController@store']);
+Route::post('article', ['as' => 'article.store' , 'uses' => 'ArticleController@store']);
 
-
+Route::delete('user/{id}', ['as' => 'article.destroys', 'uses' => 'ArticleController@destroys']);
 
 
 
