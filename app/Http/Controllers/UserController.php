@@ -93,9 +93,9 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user=User::find($id);
+        $user=UserEloquent::find($id);
         $user->update($request->all());
-        return redirect()->route('back.UserBack');
+        return redirect()->route('UserBack.index');
     }
 
     /**
@@ -106,7 +106,8 @@ class UserController extends Controller
      */
     public function destroy( $id)
     {
-        User::destroy($id);
-        return redirect()->route('back.UserBack');
+        $user=UserEloquent::findOrFail($id);
+        $user->delete();
+        return redirect()->route('UserBack.index');
     }
 }

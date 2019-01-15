@@ -93,6 +93,6 @@ class RestaurantController extends Controller
     public function destroy($id)
     {
         Restaurant::destroy($id);
-        return redirect()->route('back.ResBack');
+        return redirect()->route('ResBack.index');
     }
 }
