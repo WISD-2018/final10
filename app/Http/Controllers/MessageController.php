@@ -91,8 +91,14 @@ class MessageController extends Controller
      * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Message $message)
+    public function destroy($article_id, $message_id)
     {
-        //
+        $message = MessageEloqent::where('art_id',$article_id)->findOrFail($message_id);
+        if(Auth::user()->id == $message->stu_id ){
+            $message->delete();
+          }
+        return redirect()->back();
+
     }
+
 }

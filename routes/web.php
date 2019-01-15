@@ -34,8 +34,8 @@ Route::delete('user/{id}', ['as' => 'article.destroys', 'uses' => 'ArticleContro
 Route::get('users/{id}/edit', ['as' => 'article.edit'  , 'uses' => 'ArticleController@edit']);
 Route::patch('users/update/{id}', ['as' => 'article.updates', 'uses' => 'ArticleController@updates']);
 
-Route::post('index'      , ['as' => 'message.store'   , 'uses' => 'MessageController@store']);
-Route::delete('index/{id}', ['as' => 'message.destroys', 'uses' => 'MessageController@destroy']);
+Route::post('index'        , ['as' => 'message.store'   , 'uses' => 'MessageController@store']);
+Route::delete('index/{id}'  , ['as' => 'message.destroys', 'uses' => 'MessageController@destroy']);
 
 Route::get('user', ['as' => 'user.index' , 'uses' => 'UserController@index']);
 
