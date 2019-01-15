@@ -8,6 +8,11 @@ class Message extends Model
 {
     protected $table = 'messages';
 
+    protected $fillable = [
+        'art_id',
+        'stu_id',
+        'content',
+    ];
 
     public function user(){
         return $this->belongsTo(User::class,'stu_id','id');
