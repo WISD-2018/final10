@@ -160,7 +160,8 @@
 
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">編輯文章</a>
+
+                                        <a class="dropdown-item" href="{{ route('article.edit', ['article'=>$article->id]) }}">編輯文章</a>
                                         <form method="POST" action="{{ route('article.destroys', ['article'=>$article->id]) }}">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}

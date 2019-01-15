@@ -150,11 +150,15 @@ class ArticleController extends Controller
         return redirect()->route('ArticleBack.index');
     }
 
-    public function updates($request,$id)
+    public function updates(Request $request)
     {
-        $article = ArticleEloquent::findOrFail($id);
-        $article->update($request()->all());
-        return redirect()->route('user.index');
+        $article=ArticleEloquent::findOrFail($request['stu_id']);
+        $article->update([
+            'title' => $request['title'],
+            'res_id' => $request['restaurant'],
+            'content'=>$request['content'],
+        ]);
+        return redirect()->action('UserController@index');
     }
     /**
      * Remove the specified resource from storage.

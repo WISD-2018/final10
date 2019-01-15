@@ -37,8 +37,9 @@ Route::get('create', ['as' => 'article.create' , 'uses' => 'ArticleController@cr
 Route::post('article', ['as' => 'article.store' , 'uses' => 'ArticleController@store']);
 //使用者
 Route::delete('user/{id}', ['as' => 'article.destroys', 'uses' => 'ArticleController@destroys']);
-Route::get('users/{id}/edit', ['as' => 'article.edit'  , 'uses' => 'ArticleController@edit']);
-Route::patch('users/update/{id}', ['as' => 'article.updates', 'uses' => 'ArticleController@updates']);
+
+Route::get('users/edit/{id}', ['as' => 'article.edit'  , 'uses' => 'ArticleController@edit']);
+Route::patch('users/update', ['as' => 'article.updates', 'uses' => 'ArticleController@updates']);
 //使用者個人貼文詳細
 Route::get('user/index/{id}', ['as' => 'user.main.index' , 'uses' => 'ArticleController@UserSmall']);
 
