@@ -57,8 +57,8 @@ Route::get('ArticleBack/check/{id}', ['as' => 'ArticleBack.check', 'uses' => 'Ar
 Route::patch('ArticleBack/update/{id}', ['as' => 'ArticleBack.update', 'uses' => 'ArticleController@update']);
 
 
-Route::get('UserBack/{id}', ['as' => 'UserBack.update' , 'uses' => 'UserController@update']);
-Route::get('UserBack/{id}', ['as' => 'UserBack.destroy' , 'uses' => 'UserController@destroy']);
+Route::patch('UserBack/{id}', ['as' => 'UserBack.update' , 'uses' => 'UserController@update']);
+Route::delete('UserBack/{id}', ['as' => 'UserBack.destroy' , 'uses' => 'UserController@destroy']);
 
 
-Route::get('ResBack/{id}', ['as' => 'ResBack.destroy' , 'uses' => 'RestaurantController@destroy']);
+Route::delete('ResBack/{id}', ['as' => 'ResBack.destroy' , 'uses' => 'RestaurantController@destroy']);
