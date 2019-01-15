@@ -21,7 +21,8 @@ class ArticleController extends Controller
         $article=ArticleEloquent::findOrFail($id);
         $articles=ArticleEloquent::where('id',$article->id)->get();
         $messages=MessageEloquent::where('art_id',$article->id)->get();
-        $data=['articles'=>$articles,'messages'=>$messages];
+        $praises=PraiseEloquent::where('art_id',$article->id)->get();
+        $data=['articles'=>$articles,'messages'=>$messages,'praises'=>$praises];
         return view('main.index',$data);
     }
     public function check($id)

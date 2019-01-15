@@ -19,10 +19,17 @@ Route::get('article', ['as' => 'article.index' , 'uses' => 'ArticleController@in
 Route::get('BestArticle', ['as' => 'article.BestIndex' , 'uses' => 'ArticleController@BestIndex']);
 Route::get('index/{id}', ['as' => 'article.small' , 'uses' => 'ArticleController@small']);
 
+//餐廳
+Route::get('restaurant', ['as' => 'restaurant.index' , 'uses' => 'RestaurantController@index']);
+
+
+//按讚
+Route::post('index/{id}', ['as' => 'praise.click' , 'uses' => 'PraiseController@click']);
 
 //新增貼文
 Route::get('create', ['as' => 'article.create' , 'uses' => 'ArticleController@create']);
 //Route::get('article', ['as' => 'article.store' , 'uses' => 'ArticleController@store']);
+
 
 
 

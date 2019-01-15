@@ -1,21 +1,6 @@
 @extends('layouts.PostApp')
 
 @section('content')
-    <head>
-        <style>
-            .pic {
-                position:relative;
-                width: 40px;
-                height: 40px;
-                overflow: hidden;
-                border-radius:50%;
-            }
-            .pic img {
-                width: 100%;
-                height: auto;
-            }
-        </style>
-    </head>
     <div class="container">
 
         <div class="row justify-content-center">
@@ -51,9 +36,30 @@
                             <hr style="margin:10px 0;" />
                             <div class="row">
                                 <div class="col-md-4 text-center" >
-                                    {{ $article->praise->count() }}{{'個讚'}}
+                                    {{--@foreach($praises as $praise)--}}
+                                        {{--@if($praise->stu_id === Auth::user()->id)--}}
+                                            {{--@php--}}
+                                                {{--$num=1;--}}
+                                            {{--@endphp--}}
+                                            {{--@break--}}
+                                        {{--@else--}}
+                                            {{--@php--}}
+                                                {{--$num=0;--}}
+                                            {{--@endphp--}}
+                                        {{--@endif--}}
+                                    {{--@endforeach--}}
+                                        {{--@if($num=1)--}}
+                                            {{--{{ $article->praise->count() }}{{'個讚'}}--}}
+                                        {{--@elseif($num=0)--}}
+                                            <form method="POST" action="{{ route('praise.click',$article->id) }}">
+                                                {{ csrf_field() }}
+                                                {{ $article->praise->count() }}{{'個讚'}}
+                                                <button type="submit" class="btn btn-m btn-primary">按讚</button>
+                                            </form>
+                                        {{--@endif--}}
 
-                                    <a href="#" class="btn btn-primary" style="margin-left: 10px">按讚</a>
+
+                                    {{--<a href="{{ route('praise.click',$article->id) }}" class="btn btn-primary" style="margin-left: 10px">按讚</a>--}}
                                 </div>
 
                                 <div class="col-md-4 text-center" style="margin-top: 5px">
