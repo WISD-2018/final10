@@ -24,7 +24,6 @@
                             <th width="80" >Stu_id</th>
                             <th>標題</th>
                             <th>內容</th>
-                            <th width="100" style="text-align: center">功能</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -34,9 +33,6 @@
                                 <td width="80" style="text-align: center">{{ $qq->stu_id }}</td>
                                 <td width="80" style="text-align: center">{{ $qq->title }}</td>
                                 <td>{{ $qq->content }}</td>
-                                <td>
-
-                                </td>
                             </tr>
                         @endforeach
                         </tbody>
