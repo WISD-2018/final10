@@ -3,8 +3,8 @@
     <style>
         .pic2 {
             position:relative;
-            width: 250px;
-            height: 250px;
+            width: 300px;
+            height: 300px;
             overflow: hidden;
             border-radius:50%;
         }
@@ -32,9 +32,15 @@
             @foreach ($restaurants as $restaurant)
                 <div class="col-lg-4 col-sm-6 mb-4">
                     <div class="card h-1">
-                        <a href=""><img class="card-img-top" src="{{$restaurant->photo}}" alt=""></a>
                         <div class="card-body">
-                            <h4 class="card-title text-center">
+                            <div class="justify-content-center">
+                                    <a href="">
+                                        <div class="pic2 ">
+                                            <img class="card-img-top" src="{{$restaurant->photo}}" alt="">
+                                        </div>
+                                    </a>
+                            </div>
+                            <h4 class="card-title text-center" style="margin-top: 20px">
                                 <a href="">{{ substr($restaurant->name,0,25) }}</a>
                             </h4>
                             <p class="card-text"></p>
@@ -53,9 +59,16 @@
                                                 @endphp
                                         @endif
                                     @endforeach
-                                    @php
-                                        $num2=floor($num/$num2);
-                                    @endphp
+                                    @if ($num2 === 0)
+                                        @php
+                                            $num2=floor($num/1);
+                                        @endphp
+                                    @else
+                                        @php
+                                            $num2=floor($num/$num2);
+                                        @endphp
+                                    @endif
+
                                     <span style=" font-weight:bold; font-family:微軟正黑體;">{{ $num2 }}{{'星級餐廳'}}</span>
                                 </div>
                             </div>
