@@ -92,12 +92,13 @@
                             <div>
                                 @if(Auth::check())
                                     @if(Auth::user()->id == $message->stu_id)
-                                        <form method="POST"  action="{{ route('message.destroys',['article'=>$article->id,'message'=>$message->id] )}}">
+                                        <form method="POST"  action="{{ route('message.destroys',['message'=>$message->id] )}}">
                                             {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
                                             <input type="hidden" name="_method" value="DELETE" />
                                             <button type="submit"  class="btn btn-xs btn-danger pull-right">
                                                 <i class="glyphicon glyphicon-trash"></i>
-                                                <span style="padding-left:5px;">刪除留言</span>
+                                                <span>刪除留言</span>
                                             </button>
                                         </form>
                                     @endif
@@ -105,7 +106,7 @@
                             </div>
 
                             <p>{{$message->content}}</p>
-                            <small class="text-muted">Posted by {{$message->user->name}} on {{$message->created_at}}</small>
+                            <small class="text-muted"> {{$message->user->name}} 留言於 {{$message->created_at}}</small>
                             <hr style="margin:10px 0;" />
                         @endforeach
                     </div>
