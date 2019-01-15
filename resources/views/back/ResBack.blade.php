@@ -33,7 +33,10 @@
                                 <td width="80" style="text-align: center">{{ $rr->name }}</td>
                                 <td>{{ $rr->photo }}</td>
                                 <td>
-
+                                    <form action="{{ route('ResBack.destroy', $rr->id) }}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <button class="btn btn-success">刪除</button></form>
                                 </td>
                             </tr>
                         @endforeach
