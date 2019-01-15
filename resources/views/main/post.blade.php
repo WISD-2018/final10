@@ -1,6 +1,4 @@
 @extends('layouts.PostApp')
-
-@section('content')
 <head>
     <style>
         .pic {
@@ -14,8 +12,19 @@
             width: 100%;
             height: auto;
         }
+        .pic2 {
+            position:relative;
+            height: 250px;
+            overflow: hidden;
+        }
+        .pic img {
+            width: auto;
+            height: 100%;
+        }
     </style>
 </head>
+@section('content')
+
     <!-- Page Content -->
     <div class="container">
 
@@ -38,7 +47,7 @@
         <div class="row">
             @foreach ($articles as $article)
             <div class="col-lg-4 col-sm-6 mb-4">
-                <div class="card h-100">
+                <div class="card h-1">
                     <div class="card-header">
                         <div class="row">
                             <div class="col-md-2">
@@ -47,11 +56,16 @@
                                 </div>
                             </div>
                             <div class="col-md-10" style="margin-top: 10px">
+
                                 {{$article->user->name}}
                             </div>
                         </div>
                     </div>
-                    <a href="{{ route('article.small',$article->id) }}"><img class="card-img-top" src="{{$article->photo}}" alt=""></a>
+                    <a href="{{ route('article.small',$article->id) }}">
+                        <div class="pic2">
+                            <img class="card-img-top" src="{{$article->photo}}" alt="">
+                        </div>
+                    </a>
                     <div class="card-body">
                         <h4 class="card-title">
                             <a href="{{ route('article.small',$article->id) }}">{{substr($article->title,0,20)}}</a>
