@@ -25,7 +25,9 @@ Route::get('restaurant', ['as' => 'restaurant.index' , 'uses' => 'RestaurantCont
 
 //按讚
 Route::post('index/{id}', ['as' => 'praise.click' , 'uses' => 'PraiseController@click']);
-
+Route::post('index2/{id}', ['as' => 'praise.click2' , 'uses' => 'PraiseController@click2']);
+//檢舉
+Route::patch('article/update/{id}', ['as' => 'article.report', 'uses' => 'ArticleController@report']);
 //新增貼文
 Route::get('create', ['as' => 'article.create' , 'uses' => 'ArticleController@create']);
 Route::post('article', ['as' => 'article.store' , 'uses' => 'ArticleController@store']);

@@ -13,6 +13,15 @@ class PraiseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function click2($id)
+    {
+        Praise::create([
+            'art_id' => $id,
+            'stu_id' => Auth::user()->id,
+            'praise' => 1,
+        ]);
+        return redirect()->route('user.main.index',$id);
+    }
     public function click($id)
     {
         Praise::create([
