@@ -7,5 +7,6 @@ $factory->define(App\Message::class, function (Faker $faker) {
         'art_id'=> 0,
         'stu_id'=> 0,
         'content'=> $faker->paragraphs(mt_rand(3, 6),true),
+        'created_at' => $faker->dateTimeBetween('-1 month', '+1 days'),
     ];
 });

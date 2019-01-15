@@ -18,19 +18,19 @@ class TestTableSeeder extends Seeder
      */
     public function run()
     {
-        $users = factory(UserEloquent::class, 200)->create();
-        $restaurants = factory(RestaurantEloquent::class, 30)->create();
-        $articles = factory(ArticleEloquent::class, 200)->create()->each(function ($article) use ($restaurants, $users) {
+        $users = factory(UserEloquent::class, 20)->create();
+        $restaurants = factory(RestaurantEloquent::class, 20)->create();
+        $articles = factory(ArticleEloquent::class, 20)->create()->each(function ($article) use ($restaurants, $users) {
             $article->res_id = $restaurants[mt_rand(0, (count($restaurants) - 1))]->id;
             $article->stu_id = $users[mt_rand(1, (count($users) - 1))]->id;
             $article->save();
         });
-        $messages = factory(MessageEloquent::class, 200)->create()->each(function ($message) use ($articles, $users) {
+        $messages = factory(MessageEloquent::class, 20)->create()->each(function ($message) use ($articles, $users) {
             $message->art_id = $articles[mt_rand(0, (count($articles) - 1))]->id;
             $message->stu_id = $users[mt_rand(1, (count($users) - 1))]->id;
             $message->save();
         });
-        $praises = factory(PraiseEloquent::class, 200)->create()->each(function ($praise) use ($articles, $users) {
+        $praises = factory(PraiseEloquent::class, 20)->create()->each(function ($praise) use ($articles, $users) {
             $praise->art_id = $articles[mt_rand(0, (count($articles) - 1))]->id;
             $praise->stu_id = $users[mt_rand(1, (count($users) - 1))]->id;
             $praise->save();
@@ -39,7 +39,7 @@ class TestTableSeeder extends Seeder
             $problem->stu_id = $users[mt_rand(1, (count($users) - 1))]->id;
             $problem->save();
         });
-        $scores = factory(ScoreEloquent::class, 200)->create()->each(function ($score) use ($restaurants, $users) {
+        $scores = factory(ScoreEloquent::class, 20)->create()->each(function ($score) use ($restaurants, $users) {
             $score->res_id = $restaurants[mt_rand(0, (count($restaurants) - 1))]->id;
             $score->stu_id = $users[mt_rand(1, (count($users) - 1))]->id;
             $score->save();
