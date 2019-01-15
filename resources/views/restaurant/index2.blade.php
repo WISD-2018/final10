@@ -86,51 +86,74 @@
                                 </div>
                                 <input class="form-control col-md-6 " type="hidden" name="position"  value="{{ "1" }}"readonly >
                                 <div class="row justify-content-center">
-                                    @foreach($restaurants as $restaurant)
 
-                                    <form  method="POST" action="{{ route('restaurant.score') }}">
-                                        {{ csrf_field() }}
-                                        <input type="hidden" name="res_id" value="{{ $restaurant->id }}">
-                                        <input type="hidden" name="score" value="{{ 1 }}">
-                                        <button type="submit" class="btn btn-primary col-md-12" style="font-weight:bold;">
-                                            {{ '1星' }}
-                                        </button>
-                                    </form>
-                                        <form  method="POST" action="{{ route('restaurant.score') }}">
-                                            {{ csrf_field() }}
-                                            <input type="hidden" name="res_id" value="{{ $restaurant->id }}">
-                                            <input type="hidden" name="score" value="{{ 2 }}">
-                                            <button type="submit" class="btn btn-primary col-md-12" style="font-weight:bold;">
-                                                {{ '2星' }}
-                                            </button>
-                                        </form>
-                                        <form  method="POST" action="{{ route('restaurant.score') }}">
-                                            {{ csrf_field() }}
-                                            <input type="hidden" name="res_id" value="{{ $restaurant->id }}">
-                                            <input type="hidden" name="score" value="{{ 3 }}">
-                                            <button type="submit" class="btn btn-primary col-md-12" style="font-weight:bold;">
-                                                {{ '3星' }}
-                                            </button>
-                                        </form>
-                                        <form  method="POST" action="{{ route('restaurant.score') }}">
-                                            {{ csrf_field() }}
-                                            <input type="hidden" name="res_id" value="{{ $restaurant->id }}">
-                                            <input type="hidden" name="score" value="{{ 4 }}">
-                                            <button type="submit" class="btn btn-primary col-md-12" style="font-weight:bold;">
-                                                {{ '4星' }}
-                                            </button>
-                                        </form>
-                                        <form  method="POST" action="{{ route('restaurant.score') }}">
-                                            {{ csrf_field() }}
-                                            <input type="hidden" name="res_id" value="{{ $restaurant->id }}">
-                                            <input type="hidden" name="score" value="{{ 5 }}">
-                                            <button type="submit" class="btn btn-primary col-md-12" style="font-weight:bold;">
-                                                {{ '5星' }}
-                                            </button>
-                                        </form>
+                                    @if($scores->count()===0)
+                                        @foreach($restaurants as $restaurant)
+                                            <form  method="POST" action="{{ route('restaurant.score') }}">
+                                                {{ csrf_field() }}
+                                                <input type="hidden" name="res_id" value="{{ $restaurant->id }}">
+                                                <input type="hidden" name="score" value="{{ 0 }}">
+                                                <button type="submit" class="btn btn-primary col-md-12" style="font-weight:bold;">
+                                                    {{ '0星' }}
+                                                </button>
+                                            </form>
+                                            <form  method="POST" action="{{ route('restaurant.score') }}">
+                                                {{ csrf_field() }}
+                                                <input type="hidden" name="res_id" value="{{ $restaurant->id }}">
+                                                <input type="hidden" name="score" value="{{ 1 }}">
+                                                <button type="submit" class="btn btn-primary col-md-12" style="font-weight:bold;">
+                                                    {{ '1星' }}
+                                                </button>
+                                            </form>
+                                            <form  method="POST" action="{{ route('restaurant.score') }}">
+                                                {{ csrf_field() }}
+                                                <input type="hidden" name="res_id" value="{{ $restaurant->id }}">
+                                                <input type="hidden" name="score" value="{{ 2 }}">
+                                                <button type="submit" class="btn btn-primary col-md-12" style="font-weight:bold;">
+                                                    {{ '2星' }}
+                                                </button>
+                                            </form>
+                                            <form  method="POST" action="{{ route('restaurant.score') }}">
+                                                {{ csrf_field() }}
+                                                <input type="hidden" name="res_id" value="{{ $restaurant->id }}">
+                                                <input type="hidden" name="score" value="{{ 3 }}">
+                                                <button type="submit" class="btn btn-primary col-md-12" style="font-weight:bold;">
+                                                    {{ '3星' }}
+                                                </button>
+                                            </form>
+                                            <form  method="POST" action="{{ route('restaurant.score') }}">
+                                                {{ csrf_field() }}
+                                                <input type="hidden" name="res_id" value="{{ $restaurant->id }}">
+                                                <input type="hidden" name="score" value="{{ 4 }}">
+                                                <button type="submit" class="btn btn-primary col-md-12" style="font-weight:bold;">
+                                                    {{ '4星' }}
+                                                </button>
+                                            </form>
+                                            <form  method="POST" action="{{ route('restaurant.score') }}">
+                                                {{ csrf_field() }}
+                                                <input type="hidden" name="res_id" value="{{ $restaurant->id }}">
+                                                <input type="hidden" name="score" value="{{ 5 }}">
+                                                <button type="submit" class="btn btn-primary col-md-12" style="font-weight:bold;">
+                                                    {{ '5星' }}
+                                                </button>
+                                            </form>
 
 
-                                    @endforeach
+                                        @endforeach
+                                    @else
+                                        @foreach($scores as $score)
+                                            <label class=" col-md-12" style="text-align: center;font-family: 微軟正黑體 ;font-size: 30px;color:#FFFFFF;padding: 1px 1px 1px 1px;margin-top: 5px;background-color: transparent;border-style: none; color: #5cb85c">
+                                                {{ '你已給於' }}{{$score->score}}{{ '星級的肯定!!' }}
+                                            </label>
+                                        @endforeach
+
+                                    @endif
+
+
+
+
+
+
 
 
                                 </div>

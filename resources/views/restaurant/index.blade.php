@@ -41,7 +41,7 @@
                                     </a>
                             </div>
                             <h4 class="card-title text-center" style="margin-top: 20px">
-                                <a href="">{{ substr($restaurant->name,0,25) }}</a>
+                                <a href="{{ route('restaurant.index2',$restaurant->id) }}">{{ substr($restaurant->name,0,25) }}</a>
                             </h4>
                             <p class="card-text"></p>
                             <hr style="margin:10px 0;" />

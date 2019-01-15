@@ -36,11 +36,12 @@ class RestaurantController extends Controller
 
     public function index2($id)
     {
+        $scores=ScoreEloquent::where(['res_id'=>$id,'stu_id'=>Auth::user()->id])->paginate(1);
         $restaurants=RestaurantEloquent::where('id',$id)->get();
         $praises=PraiseEloquent::orderBy('id','ASC')->get();
         $articles=ArticleEloquent::where('res_id',$id)->paginate(12);
         $posts=ArticleEloquent::where('res_id',$id);
-        $data=['articles'=>$articles,'posts'=>$posts,'praises'=>$praises,'restaurants'=>$restaurants];
+        $data=['articles'=>$articles,'posts'=>$posts,'praises'=>$praises,'restaurants'=>$restaurants,'scores'=>$scores];
         return view('restaurant.index2',$data);
     }
     public function index()
