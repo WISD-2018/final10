@@ -137,7 +137,7 @@
             <div class="row justify-content-center">
                 {{--只有1筆板會跑掉--}}
                 @foreach ($articles as $article)
-                    <div class="col-md-4">
+                    <div class="col-md-7">
                         <div class="card sticky-action">
 
                             <div class="card-image waves-effect waves-block waves-light pic3">
@@ -161,20 +161,19 @@
 
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">編輯文章</a>
+                                        <a class="dropdown-item" href="{{ route('article.edit',['article'=>$article->id]) }}">編輯文章</a>
                                         <a class="dropdown-item" href="{{ route('article.destroys', ['article'=>$article->id]) }}">刪除文章</a>
                                     </div>
                                 </div>
                                 <div class="row" style="margin-top:10px;">
-                                    <div class="col-md-8">
-                                        @if(Auth::check())
+                                    <div class="col-md-10">
                                             @if(Auth::user()->id == $article->stu_id )
-                                                <form method="POST" action="{{ route('article.destroys', ['article'=>$article->id]) }}">
+                                        <form method="POST" action="{{ route('article.destroys', ['article'=>$article->id]) }}">
                                         <span style="padding-left: 10px;">
-                                                    {{--<a class="btn btn-xs btn-primary" href="">--}}
-                                            {{--<i class="glyphicon glyphicon-pencil"></i>--}}
-                                            {{--<span style="padding-left: 5px;">編輯文章</span>--}}
-                                            {{--</a>--}}
+                                            <a class="btn btn-xs btn-primary" href="{{ route('article.edit',['article'=>$article->id]) }}">
+                                            <i class="glyphicon glyphicon-pencil"></i>
+                                            <span style="padding-left: 5px;">編輯文章</span>
+                                            </a>
                                             {{ csrf_field() }}
                                             <input type="hidden" name="_method" value="DELETE" />
                                                     <button type="submit" class="btn btn-xs btn-danger">
@@ -184,7 +183,6 @@
                                                 </span>
                                                 </form>
                                             @endif
-                                        @endif
                                     </div>
                                 </div>
 
