@@ -68,7 +68,11 @@
                                     {{$article->message->count()}}{{'則回應'}}
                                 </div>
                                 <div class="col-md-4 text-center" >
-                                    <a href="#" class="btn btn-secondary" style="margin-left: 10px">檢舉</a>
+                                    <form action="{{ route('article.report',$article->id) }}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('PATCH') }}
+                                        <button type="submit" class="btn btn-secondary">檢舉</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

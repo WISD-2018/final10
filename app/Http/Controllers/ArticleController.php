@@ -135,6 +135,13 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
+    public function report($id)
+    {
+        $article=ArticleEloquent::findOrFail($id);
+        $article->update(['report'=>1]);
+
+        return redirect()->route('article.small',$id);
+    }
     public function update($id)
     {
         $article=ArticleEloquent::findOrFail($id);

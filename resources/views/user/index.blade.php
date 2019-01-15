@@ -37,7 +37,7 @@
                             {{--4.0 stars--}}
                             <hr style="margin:10px 0;" />
                             <div class="row">
-                                <div class="col-md-4 text-center" >
+                                <div class="col-md-6 text-center" >
                                     {{--@foreach($praises as $praise)--}}
                                         {{--@if($praise->stu_id === Auth::user()->id)--}}
                                             {{--@php--}}
@@ -53,7 +53,7 @@
                                         {{--@if($num=1)--}}
                                             {{--{{ $article->praise->count() }}{{'個讚'}}--}}
                                         {{--@elseif($num=0)--}}
-                                            <form method="POST" action="{{ route('praise.click',$article->id) }}">
+                                            <form method="POST" action="{{ route('praise.click2',$article->id) }}">
                                                 {{ csrf_field() }}
                                                 {{ $article->praise->count() }}{{'個讚'}}
                                                 <button type="submit" class="btn btn-m btn-primary">按讚</button>
@@ -64,11 +64,8 @@
                                     {{--<a href="{{ route('praise.click',$article->id) }}" class="btn btn-primary" style="margin-left: 10px">按讚</a>--}}
                                 </div>
 
-                                <div class="col-md-4 text-center" style="margin-top: 5px">
+                                <div class="col-md-6 text-center" style="margin-top: 5px">
                                     {{$article->message->count()}}{{'則回應'}}
-                                </div>
-                                <div class="col-md-4 text-center" >
-                                    <a href="#" class="btn btn-secondary" style="margin-left: 10px">檢舉</a>
                                 </div>
                             </div>
                         </div>
