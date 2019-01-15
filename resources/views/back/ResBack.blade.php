@@ -13,37 +13,34 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover">
-                        <thead>
-                        <tr>
-                            <th width="30" style="text-align: center">#</th>
-                            <th width="80" >名稱</th>
-                            <th>圖片</th>
-                            <th width="100" style="text-align: center">功能</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($restaurants as $rr)
-                            <tr>
-                                <td width="30" style="text-align: center">{{ $rr->id }}</td>
-                                <td width="80" style="text-align: center">{{ $rr->name }}</td>
-                                <td>{{ $rr->photo }}</td>
-                                <td>
-                                    <form action="{{ route('ResBack.destroy', $rr->id) }}" method="POST">
-                                        {{ csrf_field() }}
-                                        {{ method_field('DELETE') }}
-                                        <button class="btn btn-success">刪除</button></form>
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+    <table class="table table-bordered table-hover">
 
+        <tbody>
+        <tr>
+            <td bgcolor="gray" width="90px" style="text-align: center">
+                <h5><font face="微軟正黑體" color="white">餐廳編號</font></h5>
+            </td>
+            <td bgcolor="gray" width="90px" style="text-align: center">
+                <h5><font face="微軟正黑體" color="white">餐廳</font></h5>
+            </td>
+            <td bgcolor="gray" width="90px" style="text-align: center">
+                <h5><font face="微軟正黑體" color="white">刪除</font></h5>
+            </td>
+        </tr>
+        <tbody>
+        @foreach($restaurants as $restaurant)
+            <tr>
+                <td>{{ $restaurant->id}}</td>
+                <td>{{ $restaurant->name }}</td>
+                <td>
+                    <form action="{{ route('ResBack.destroy', $restaurant->id) }}" method="POST">
+                        {{ csrf_field() }}
+                        {{ method_field('DELETE') }}
+                        <button class="btn btn-success center-block">刪除</button>
+                    </form>
+                </td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
 @endsection

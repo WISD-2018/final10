@@ -12,45 +12,45 @@
             </ol>
         </div>
     </div>
+    @php
+    $cat='哈希值-不可逆';
+    @endphp
+    <table class="table table-bordered table-hover">
 
-    <div class="row">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover">
-                        <thead>
-                        <tr>
-                            <th width="30" style="text-align: center">#</th>
-                            <th>姓名</th>
-                            <th>信箱</th>
-                            <th>email_verified</th>
-                            <th>密碼</th>
-                            <th>permission</th>
-                            <th>photo</th>
-                            <th width="100" style="text-align: center">功能</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($users as $ss)
-                            <tr>
-                                <td style="text-align: center">{{ $ss->id }}</td>
-                                <td style="text-align: center">{{ $ss->name }}</td>
-                                <td width="200">{{ $ss->email }}</td>
-                                <td>{{ $ss->email_verified_at }}</td>
-                                <td>{{ $ss->password }}</td>
-                                <td>{{ $ss->permission }}</td>
-                                <td>{{ $ss->photo }}</td>
-                                <td>
-                                    <form action="{{ route('UserBack.destroy', $ss->id) }}" method="POST">
-                                        {{ csrf_field() }}
-                                        {{ method_field('DELETE') }}
-                                        <button class="btn btn-success">刪除</button></form>
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+        <tbody>
+        <tr>
+            <td bgcolor="gray" width="90px" style="text-align: center">
+                <h5><font face="微軟正黑體" color="white">學生編號</font></h5>
+            </td>
+            <td bgcolor="gray" width="90px" style="text-align: center">
+                <h5><font face="微軟正黑體" color="white">學生</font></h5>
+            </td>
+            <td bgcolor="gray" width="90px" style="text-align: center">
+                <h5><font face="微軟正黑體" color="white">信箱</font></h5>
+            </td>
+            <td bgcolor="gray" width="90px" style="text-align: center">
+                <h5><font face="微軟正黑體" color="white">密碼</font></h5>
+            </td>
+            <td bgcolor="gray" width="90px" style="text-align: center">
+                <h5><font face="微軟正黑體" color="white">刪除</font></h5>
+            </td>
+        </tr>
+        <tbody>
+        @foreach($users as $user)
+            <tr>
+                <td>{{ $user->id}}</td>
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->email}}</td>
+                <td>{{ $cat }}</td>
+                <td>
+                    <form action="{{ route('UserBack.destroy', $user->id) }}" method="POST">
+                        {{ csrf_field() }}
+                        {{ method_field('DELETE') }}
+                        <button class="btn btn-success center-block">刪除</button>
+                    </form>
+                </td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
 @endsection
