@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use App\Score;
 use App\Restaurant;
 use Illuminate\Http\Request;
 use App\Restaurant as RestaurantEloquent;
 use App\Score as ScoreEloquent;
+use App\Article as ArticleEloquent;
+use App\Praise as PraiseEloquent;
 
 class RestaurantController extends Controller
 {
@@ -14,6 +18,15 @@ class RestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function score(Request $request)
+    {
+        Score::create([
+            'res_id' => $request['res_id'],
+            'stu_id' => Auth::user()->id,
+            'score' => $request['score'],
+        ]);
+        return redirect()->route('restaurant.index2', $request['res_id']);
+    }
     public function back()
     {
         $restaurants =Restaurant::orderBy('created_at','DESC')->get();
@@ -21,6 +34,15 @@ class RestaurantController extends Controller
         return view('back.ResBack',$data);
     }
 
+    public function index2($id)
+    {
+        $restaurants=RestaurantEloquent::where('id',$id)->get();
+        $praises=PraiseEloquent::orderBy('id','ASC')->get();
+        $articles=ArticleEloquent::where('res_id',$id)->paginate(12);
+        $posts=ArticleEloquent::where('res_id',$id);
+        $data=['articles'=>$articles,'posts'=>$posts,'praises'=>$praises,'restaurants'=>$restaurants];
+        return view('restaurant.index2',$data);
+    }
     public function index()
     {
         $restaurants=RestaurantEloquent::orderBy('created_at','DESC')->get();
@@ -47,7 +69,7 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

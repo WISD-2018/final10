@@ -34,7 +34,7 @@
                     <div class="card h-1">
                         <div class="card-body">
                             <div class="justify-content-center">
-                                    <a href="">
+                                    <a href="{{ route('restaurant.index2',$restaurant->id) }}">
                                         <div class="pic2 ">
                                             <img class="card-img-top" src="{{$restaurant->photo}}" alt="">
                                         </div>

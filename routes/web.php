@@ -20,6 +20,11 @@ Route::get('index/{id}', ['as' => 'article.small' , 'uses' => 'ArticleController
 
 //餐廳
 Route::get('restaurant', ['as' => 'restaurant.index' , 'uses' => 'RestaurantController@index']);
+Route::get('restaurant/index2/{id}', ['as' => 'restaurant.index2' , 'uses' => 'RestaurantController@index2']);
+
+
+//新增分數
+Route::post('restaurant/score', ['as' => 'restaurant.score' , 'uses' => 'RestaurantController@score']);
 
 
 //按讚
