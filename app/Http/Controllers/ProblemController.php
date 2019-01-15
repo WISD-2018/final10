@@ -14,7 +14,9 @@ class ProblemController extends Controller
      */
     public function back()
     {
-        return view('back.QuestionBack');
+        $questions =Problem::orderBy('created_at','DESC')->get();
+        $data=['questions'=>$questions];
+        return view('back.QuestionBack',$data);
     }
 
     public function index()
