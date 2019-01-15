@@ -90,8 +90,9 @@ class RestaurantController extends Controller
      * @param  \App\Restaurant  $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Restaurant $restaurant)
+    public function destroy($id)
     {
-        //
+        Restaurant::destroy($id);
+        return redirect()->route('back.ResBack');
     }
 }

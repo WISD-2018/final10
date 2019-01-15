@@ -59,3 +59,6 @@ Route::patch('ArticleBack/update/{id}', ['as' => 'ArticleBack.update', 'uses' =>
 
 Route::get('UserBack/{id}', ['as' => 'UserBack.update' , 'uses' => 'UserController@update']);
 Route::get('UserBack/{id}', ['as' => 'UserBack.destroy' , 'uses' => 'UserController@destroy']);
+
+
+Route::get('ResBack/{id}', ['as' => 'ResBack.destroy' , 'uses' => 'RestaurantController@destroy']);
