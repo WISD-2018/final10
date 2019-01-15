@@ -137,7 +137,7 @@
             <div class="row justify-content-center">
                 {{--只有1筆板會跑掉--}}
                 @foreach ($articles as $article)
-                    <div class="col-md-4">
+                    <div class="col-md-7">
                         <div class="card sticky-action">
 
                             <div class="card-image waves-effect waves-block waves-light pic3">
