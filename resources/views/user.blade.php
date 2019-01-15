@@ -169,7 +169,7 @@
 
                                     </div>
                                 </div>
-                                <p> {{ $article->praise->count() }} {{ '人按讚' }} &nbsp;&nbsp; {{ $article->message->count() }} {{ '則留言' }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#">詳細閱讀</a></p>
+                                <p> {{ $article->praise->count() }} {{ '人按讚' }} &nbsp;&nbsp; {{ $article->message->count() }} {{ '則留言' }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="{{ route('user.main.index',$article->id) }}">詳細閱讀</a></p>
 
                             </div>
 
