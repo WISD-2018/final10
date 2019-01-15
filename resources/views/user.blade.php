@@ -40,7 +40,7 @@
             {{--------------------------------------------------------------}}
                 <div class="col-md-2">
                 <div class="card" style="border-style: none;background-color:transparent;">
-                    <div class="card-body" style="padding-top:252px;">
+                    <div class="card-body" style="padding-top:210px;">
                         <label class=" col-md-12" style="letter-spacing:3px; text-align: center;font-family: 微軟正黑體 ; font-size: 20px;color:#FFFFFF;padding: 1px 1px 1px 1px;margin-top: 5px;background-color: transparent;border-style: none;">
                             {{ $posts->count() }}
                         </label>
@@ -55,7 +55,7 @@
                 <div class="card" style="border-style: none;background-color:transparent;">
                     <div class="card-body" style="padding-top:252px;">
                         <label class=" col-md-12" style="letter-spacing:3px; text-align: center;font-family: 微軟正黑體 ; font-size: 20px;color:#FFFFFF;padding: 1px 1px 1px 1px;margin-top: 5px;background-color: transparent;border-style: none;">
-                            {{ '5645' }}
+                            {{ '666' }}
                         </label>
                         <label class=" col-md-12" style="text-align: center;font-family:微軟正黑體 ;font-size: 25px;color:#FFFFFF;padding: 1px 1px 1px 1px;background-color: transparent;border-style: none;">
                             {{ '追蹤者' }}
@@ -95,7 +95,7 @@
                 <div class="card" style="border-style: none;background-color:transparent;">
                     <div class="card-body" style="padding-top:252px;">
                         <label class=" col-md-12" style="letter-spacing:3px; text-align: center;font-family: 微軟正黑體 ; font-size: 20px;color:#FFFFFF;padding: 1px 1px 1px 1px;margin-top: 5px;background-color: transparent;border-style: none;">
-                            {{ $articles->count() }}
+                            {{ '888' }}
                         </label>
                         <label class=" col-md-12" style="text-align: center;font-family:微軟正黑體 ;font-size: 25px;color:#FFFFFF;padding: 1px 1px 1px 1px;background-color: transparent;border-style: none;">
                             {{ '追蹤' }}
@@ -106,7 +106,7 @@
             {{--------------------------------------------------------------}}
                 <div class="col-md-2">
                 <div class="card" style="border-style: none;background-color:transparent;">
-                    <div class="card-body" style="padding-top:252px;">
+                    <div class="card-body" style="padding-top:210px;">
                         <label class=" col-md-12" style="letter-spacing:3px; text-align: center;font-family: 微軟正黑體 ; font-size: 20px;color:#FFFFFF;padding: 1px 1px 1px 1px;margin-top: 5px;background-color: transparent;border-style: none;">
 
 
