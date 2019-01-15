@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Message;
 use Illuminate\Http\Request;
+use App\Message as MessageEloqent;
+use App\Article as ArticleEloquent;
+use Auth;
 
 class MessageController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +43,12 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Message::create([
+            'art_id'=>$request['article'],
+            'stu_id'=>Auth::user()->id,
+            'content'=>$request['content']
+            ]);
+        return redirect()->back();
     }
 
     /**
