@@ -100,9 +100,11 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $article)
+    public function edit($id)
     {
-        //
+        $article = ArticleEloquent::findOrFail($id);
+        $restaurants=RestaurantEloquent::orderBy('name','ASC')->get();
+        return View('article.edit',['article'=>$article,'restaurants'=>$restaurants]);
     }
 
     /**
@@ -120,6 +122,12 @@ class ArticleController extends Controller
         return redirect()->route('ArticleBack.index');
     }
 
+    public function updates($request,$id)
+    {
+        $article = ArticleEloquent::findOrFail($id);
+        $article->update($request()->all());
+        return redirect()->route('user.index');
+    }
     /**
      * Remove the specified resource from storage.
      *
