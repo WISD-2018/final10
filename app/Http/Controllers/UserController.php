@@ -93,7 +93,9 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user=User::find($id);
+        $user->update($request->all());
+        return redirect()->route('back.UserBack');
     }
 
     /**
@@ -102,8 +104,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( $id)
     {
-        //
+        User::destroy($id);
+        return redirect()->route('back.UserBack');
     }
 }

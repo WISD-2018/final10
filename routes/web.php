@@ -55,3 +55,7 @@ Route::get('QuestionBack', ['as' => 'QuestionBack.index' , 'uses' => 'ProblemCon
 Route::delete('ArticleBack/{id}', ['as' => 'ArticleBack.destroy', 'uses' => 'ArticleController@destroy']);
 Route::get('ArticleBack/check/{id}', ['as' => 'ArticleBack.check', 'uses' => 'ArticleController@check']);
 Route::patch('ArticleBack/update/{id}', ['as' => 'ArticleBack.update', 'uses' => 'ArticleController@update']);
+
+
+Route::get('UserBack/{id}', ['as' => 'UserBack.update' , 'uses' => 'UserController@update']);
+Route::get('UserBack/{id}', ['as' => 'UserBack.destroy' , 'uses' => 'UserController@destroy']);
