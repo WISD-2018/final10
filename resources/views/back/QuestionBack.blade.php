@@ -14,30 +14,35 @@
     </div>
 
     <div class="row">
-        @for ($nun = 100000; $nun >0; $nun--)
-            111
-        @endfor
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-    </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th width="30" style="text-align: center">id</th>
+                            <th width="80" >Stu_id</th>
+                            <th>標題</th>
+                            <th>內容</th>
+                            <th width="100" style="text-align: center">功能</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($questions as $qq)
+                            <tr>
+                                <td width="30" style="text-align: center">{{ $qq->id }}</td>
+                                <td width="80" style="text-align: center">{{ $qq->stu_id }}</td>
+                                <td width="80" style="text-align: center">{{ $qq->title }}</td>
+                                <td>{{ $qq->content }}</td>
+                                <td>
+
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
 @endsection
