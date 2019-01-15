@@ -8,6 +8,8 @@ use App\Article as ArticleEloquent;
 use App\Message as MessageEloquent;
 use App\Praise as PraiseEloquent;
 use App\Restaurant as RestaurantEloquent;
+use App\User as UserEloquent;
+use Auth;
 
 class ArticleController extends Controller
 {
@@ -62,8 +64,10 @@ class ArticleController extends Controller
      */
     public function create()
     {
+        $users=UserEloquent::orderBy('id','ASC')->get();
         $restaurants=RestaurantEloquent::orderBy('name','ASC')->get();
-        return View('article.create',['restaurants'=>$restaurants]);
+        $data = ['users'=>$users ,'restaurants'=>$restaurants];
+        return View('article.create',$data);
 
     }
 
@@ -76,7 +80,7 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         Article::create($request->all());
-        return redirect()->route('main.index');
+        return redirect()->route('article.index');
     }
 
     /**
@@ -133,4 +137,14 @@ class ArticleController extends Controller
         return redirect()->route('ArticleBack.index');
     }
 
+    public function destroys($id)
+    {
+        $article=ArticleEloquent::findOrFail($id);
+        $article->delete();
+        $Messages=MessageEloquent::where('art_id',$article->id);
+        $Messages->delete();
+        $Praises=PraiseEloquent::where('art_id',$article->id);
+        $Praises->delete();
+        return redirect()->route('user.index');
+    }
 }

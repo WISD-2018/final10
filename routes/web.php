@@ -28,9 +28,9 @@ Route::post('index/{id}', ['as' => 'praise.click' , 'uses' => 'PraiseController@
 
 //新增貼文
 Route::get('create', ['as' => 'article.create' , 'uses' => 'ArticleController@create']);
-//Route::get('article', ['as' => 'article.store' , 'uses' => 'ArticleController@store']);
+Route::post('article', ['as' => 'article.store' , 'uses' => 'ArticleController@store']);
 
-
+Route::delete('user/{id}', ['as' => 'article.destroys', 'uses' => 'ArticleController@destroys']);
 
 
 
@@ -55,3 +55,10 @@ Route::get('QuestionBack', ['as' => 'QuestionBack.index' , 'uses' => 'ProblemCon
 Route::delete('ArticleBack/{id}', ['as' => 'ArticleBack.destroy', 'uses' => 'ArticleController@destroy']);
 Route::get('ArticleBack/check/{id}', ['as' => 'ArticleBack.check', 'uses' => 'ArticleController@check']);
 Route::patch('ArticleBack/update/{id}', ['as' => 'ArticleBack.update', 'uses' => 'ArticleController@update']);
+
+
+Route::patch('UserBack/{id}', ['as' => 'UserBack.update' , 'uses' => 'UserController@update']);
+Route::delete('UserBack/{id}', ['as' => 'UserBack.destroy' , 'uses' => 'UserController@destroy']);
+
+
+Route::delete('ResBack/{id}', ['as' => 'ResBack.destroy' , 'uses' => 'RestaurantController@destroy']);

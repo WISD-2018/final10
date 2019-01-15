@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Article as ArticleEloquent;
 use App\User as UserEloquent;
 use App\Praise as PraiseEloquent;
+use App\User;
 
 class UserController extends Controller
 {
@@ -24,7 +25,9 @@ class UserController extends Controller
     }
     public function back()
     {
-        return view('back.UserBack');
+        $users =User::orderBy('created_at','DESC')->get();
+        $data=['users'=>$users];
+        return view('back.UserBack',$data);
     }
 
     public function index()
@@ -36,6 +39,7 @@ class UserController extends Controller
         $data=['articles'=>$articles,'posts'=>$posts,'users'=>$users,'praises'=>$praises];
         return view('user',$data);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -89,7 +93,9 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user=UserEloquent::find($id);
+        $user->update($request->all());
+        return redirect()->route('UserBack.index');
     }
 
     /**
@@ -98,8 +104,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( $id)
     {
-        //
+        $user=UserEloquent::findOrFail($id);
+        $user->delete();
+        return redirect()->route('UserBack.index');
     }
 }

@@ -16,7 +16,9 @@ class RestaurantController extends Controller
      */
     public function back()
     {
-        return view('back.ResBack');
+        $restaurants =Restaurant::orderBy('created_at','DESC')->get();
+        $data=['restaurants'=>$restaurants];
+        return view('back.ResBack',$data);
     }
 
     public function index()
@@ -88,8 +90,9 @@ class RestaurantController extends Controller
      * @param  \App\Restaurant  $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Restaurant $restaurant)
+    public function destroy($id)
     {
-        //
+        Restaurant::destroy($id);
+        return redirect()->route('ResBack.index');
     }
 }
