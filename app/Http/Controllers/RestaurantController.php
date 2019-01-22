@@ -29,7 +29,7 @@ class RestaurantController extends Controller
     }
     public function back()
     {
-        $restaurants =Restaurant::orderBy('created_at','DESC')->get();
+        $restaurants =Restaurant::orderBy('id','ASC')->get();
         $data=['restaurants'=>$restaurants];
         return view('back.ResBack',$data);
     }

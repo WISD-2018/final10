@@ -25,7 +25,7 @@ class UserController extends Controller
     }
     public function back()
     {
-        $users =User::orderBy('created_at','DESC')->get();
+        $users =User::orderBy('id','ASC')->get();
         $data=['users'=>$users];
         return view('back.UserBack',$data);
     }
