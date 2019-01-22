@@ -67,16 +67,16 @@
 ## 系統復原步驟
 1. > 利用Source tree，來clone我們的系統 https://github.com/WISD-2018/final10.git
 2. > 打開Cmder輸入以下命令
-   - cd final10 (clone下來的名稱)
-   - composer install
-   - composer run-script post-root-package-install
-   - composer run-script post-create-project-cmd
+     - cd final10 (clone下來的名稱)
+     - composer install
+     - composer run-script post-root-package-install
+     - composer run-script post-create-project-cmd
 3. > 利用UwAmp，點選PHPMyAdmin，進入mysql的管理介面後，新增一個新的資料庫final10(自由命名)
 4. > 打開專案在.env檔設定連結資料庫
-   - DB_PORT=33060
-   - DB_DATABASE=final10(剛剛命名的名稱)
-   - DB_USERNAME=root
-   - DB_PASSWORD=root
+     - DB_PORT=33060
+     - DB_DATABASE=final10(剛剛命名的名稱)
+     - DB_USERNAME=root
+     - DB_PASSWORD=root
 5. > 打開Cmder輸入以下命令，來建立資料表的屬性
      - php artisan migrate
 6. > 打開Cmder輸入以下命令，來建立所有測試資料
@@ -84,11 +84,11 @@
 
 ## 系統使用帳號
 1. default user
-> a.可以自行註冊
+   > a.可以自行註冊
 
-> b.或使用seed後的測試帳號，內已有30組帳號，密碼皆為：123456
+   > b.或使用seed後的測試帳號，內已有30組帳號，密碼皆為：123456
 2. Admin
-> 帳號：admin@mail.com 密碼:admin
+   > 帳號：admin@mail.com 密碼:admin
 
 ## 系統開發人員
 - [3A532067 鄭一緯](https://github.com/3A532067)
