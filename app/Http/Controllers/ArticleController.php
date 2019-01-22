@@ -152,7 +152,7 @@ class ArticleController extends Controller
 
     public function updates(Request $request)
     {
-        $article=ArticleEloquent::findOrFail($request['stu_id']);
+        $article=ArticleEloquent::findOrFail($request['id']);
         $article->update([
             'title' => $request['title'],
             'res_id' => $request['restaurant'],

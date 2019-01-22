@@ -123,7 +123,7 @@
                 <nav class="navbar navbar-expand-lg   fixed-top" style="background-color:#006aa6;">
                     <div class="container">
                         <a class="navbar-brand text-white" style=" font-weight:bold; font-family:微軟正黑體;" href="{{ action('ArticleController@index') }}">
-                            {{ 'Michelin' }}
+                            {{ '勤益-米其林星級評鑑網' }}
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>

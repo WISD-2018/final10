@@ -38,7 +38,7 @@
             </div>
             <div class="col-md-3" style="margin-top: 23px;">
                 <button type="button" class="btn btn-primary btn-lg" style=" font-weight:bold; font-family:微軟正黑體;"><a href="{{ route('article.index') }}"><span style="color:orange;">最新貼文</span></a></button>
-                <button type="button" class="btn btn-warning btn-lg" style=" font-weight:bold; font-family:微軟正黑體;"><a href="{{ route('article.BestIndex') }}">人氣貼文</a></button>
+                <button type="button" class="btn btn-warning btn-lg" style=" font-weight:bold; font-family:微軟正黑體;"><a href="">人氣貼文</a></button>
             </div>
 
         </div>

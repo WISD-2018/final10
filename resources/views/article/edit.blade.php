@@ -23,6 +23,7 @@
                                 <div class="form-group">
                                     <label for="student" class="col-sm-2 control-label">學生</label>
                                     <div class="col-sm-12">
+                                        <input class="form-control" type="hidden" name="id" value="{{ $article->id }}">
                                         <input class="form-control" type="hidden" name="stu_id" value="{{ Auth::user()->id }}">
                                         <input class="form-control" type="text" name="student" value="{{ Auth::user()->name }}"readonly >
                                     </div>

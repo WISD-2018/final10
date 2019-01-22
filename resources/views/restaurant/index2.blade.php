@@ -209,20 +209,20 @@
                                 <hr style="margin:10px 0;" />
 
 
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle right" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{--<div class="dropdown">--}}
+                                    {{--<button class="btn btn-secondary dropdown-toggle right" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
 
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">編輯文章</a>
-                                        <form method="POST" action="{{ route('article.destroys', ['article'=>$article->id]) }}">
-                                            {{ csrf_field() }}
-                                            {{ method_field('DELETE') }}
-                                            <button class="dropdown-item" >刪除文章</button>
-                                        </form>
+                                    {{--</button>--}}
+                                    {{--<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">--}}
+                                        {{--<a class="dropdown-item" href="#">編輯文章</a>--}}
+                                        {{--<form method="POST" action="{{ route('article.destroys', ['article'=>$article->id]) }}">--}}
+                                            {{--{{ csrf_field() }}--}}
+                                            {{--{{ method_field('DELETE') }}--}}
+                                            {{--<button class="dropdown-item" >刪除文章</button>--}}
+                                        {{--</form>--}}
 
-                                    </div>
-                                </div>
+                                    {{--</div>--}}
+                                {{--</div>--}}
                                 <p> {{ $article->praise->count() }} {{ '人按讚' }} &nbsp;&nbsp; {{ $article->message->count() }} {{ '則留言' }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="{{ route('user.main.index',$article->id) }}">詳細閱讀</a></p>
 
                             </div>
