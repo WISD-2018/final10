@@ -10,7 +10,7 @@
 
 ## 系統的主要功能
 ### 前端
-1. 文章的新增、修改、刪除、按讚
+1. 文章的新增、修改、刪除、按讚、檢舉
 > a.新增(相關路由、Controller方法、View：3A532055 / Controller方法、View完善：3A532067)
 
 > b.修改(相關路由、Controller方法、View：3A532055 / Controller方法、View完善：3A532067)
@@ -18,6 +18,8 @@
 > c.刪除(相關路由、Controller方法、View：3A532055 / 更改在View中的位置：3A532067)
 
 > d.按讚(相關路由、Controller方法、View：3A532067)
+
+> e.檢舉(相關路由、Controller方法、View：3A532067)
 
 2. 留言的新增、刪除
 > a.新增(相關路由、Controller方法、View：3A532055)
