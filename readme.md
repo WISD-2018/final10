@@ -81,7 +81,15 @@
      - php artisan migrate
 6. > 打開Cmder輸入以下命令，來建立所有測試資料
      -  php artisan db:seed
-
+7. > 匯入額外建立的勤益餐廳
+    - 先打開UwAmp，再點選PHPMyAdmin
+    - 進入mysql後，點選剛剛建立的資料庫
+    - 在剛剛建立的資料庫，點選匯入
+    - 選擇檔案(final10/測試資料/restaurants.sql)，點選執行，即匯入成功
+8. > 回到UwAmp，點選Apache Config，連接到本專案，點選OK後，再點選Browser www即可正常運作我們的系統
+    - Apache Config->wagon*:8000
+    - Apache Config->Document Root：{DOCUMENTPATH}/final10/public
+    
 ## 系統使用帳號
 1. default user
    > a.可以自行註冊
