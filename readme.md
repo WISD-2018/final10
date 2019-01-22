@@ -18,7 +18,7 @@
 2. 留言的新增、刪除
 > a.新增(相關路由、Controller方法、View：3A532055)
 
-> b.刪除(相關路由、Controller方法、View：3A532055/Controller方法完善：3A532067)
+> b.刪除(相關路由、Controller方法、View：3A532055 / Controller方法完善：3A532067)
 
 3. 查看所有餐廳
 > (相關路由、Controller方法、View：3A532067)
@@ -43,37 +43,39 @@
 
 > c.清白功能：查看若無不妥可清除檢舉狀態(相關路由、Controller方法、View：3A532067)
 
-> d.刪除功能：查看若不妥當可刪除該篇文章(的相關路由、Controller方法、View：3A532067)
+> d.刪除功能：查看若不妥當可刪除該篇文章(相關路由、Controller方法、View：3A532067)
 
 4. 回報問題管理：查看所有回報的問題
 > (相關路由、Controller方法、View：3A532055)
 
 ## 初始專案與DB、migration建立、關聯
-3A532067 鄭一緯
+負責：3A532067 鄭一緯
 
 ## 額外使用的套件或樣板
-3A532067 鄭一緯
-
+- Bootstrap 套件
+> https://getbootstrap.com/docs/4.2/getting-started/download/
+- Materialize 套件
+> https://materializecss.com/getting-started.html
+- 參考 3 Col Portfolio 樣板
+> https://startbootstrap.com/template-overviews/3-col-portfolio/
 
 ## 系統復原步驟
-1. git clone https://github.com/WISD-2018/final10.git
-2. composer install
-3. composer run-script post-root-package-install
-4. composer run-script post-create-project-cmd
-5. 新增一資料庫並在.env檔DB部分設定連結該資料庫
-6. php artisan migrate
-7. php artisan db:seed
-
-
+1. > git clone https://github.com/WISD-2018/final10.git
+2. > 下指令 composer install
+3. > 下指令 composer run-script post-root-package-install
+4. > 下指令 composer run-script post-create-project-cmd
+5. > 在mysql新增一資料庫，並在.env檔DB部分設定連結該資料庫
+6. > 下指令 php artisan migrate
+7. > 下指令 php artisan db:seed
 
 ## 系統使用帳號
-1.default user
-a.自行註冊
-b.使用db:seed後的帳號資料 密碼皆為 123456
-2.Admin
-帳號:admini@gmail.com 密碼:admin
+1. default user
+> a.自行註冊
 
+> b.使用seed後的測試帳號，內已有30組帳號，密碼皆為：123456
+2. Admin
+> 帳號：admin@mail.com 密碼:admin
 
-##系統開發人員
-3A532067 鄭一緯
-3A532055 林建勳
+## 系統開發人員
+- [3A532067 鄭一緯](https://github.com/3A532067)
+- [3A532055 林建勳](https://github.com/3A532055)
