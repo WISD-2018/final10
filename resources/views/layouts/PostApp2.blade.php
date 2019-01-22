@@ -7,8 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <title>勤益「米其林」星級評鑑網</title>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
