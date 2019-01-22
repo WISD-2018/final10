@@ -49,30 +49,44 @@
 > (相關路由、Controller方法、View：3A532055)
 
 ## 初始專案與DB、migration建立、關聯
-負責：3A532067 鄭一緯
+- 初始專案 [3A532067 鄭一緯](https://github.com/3A532067)
+- 資料庫及資料表建立 [3A532067 鄭一緯](https://github.com/3A532067)
+- 資料表關聯 [3A532067 鄭一緯](https://github.com/3A532067)
+- 假資料建立 [3A532067 鄭一緯](https://github.com/3A532067)
 
 ## 額外使用的套件或樣板
-- Bootstrap 套件
+- Bootstrap 套件(按鈕、下拉式選單、card等等...)
 > https://getbootstrap.com/docs/4.2/getting-started/download/
-- Materialize 套件
+- Materialize 套件(在個人頁面那裡設計特殊的card效果)
 > https://materializecss.com/getting-started.html
-- 參考 3 Col Portfolio 樣板
+- 參考 3 Col Portfolio 樣板(在主畫面呈現所有貼文)
 > https://startbootstrap.com/template-overviews/3-col-portfolio/
+- 參考 Simple Sidebar 樣板(使用於後台，方便管理後台功能)
+> https://startbootstrap.com/template-overviews/simple-sidebar/
 
 ## 系統復原步驟
-1. > git clone https://github.com/WISD-2018/final10.git
-2. > 下指令 composer install
-3. > 下指令 composer run-script post-root-package-install
-4. > 下指令 composer run-script post-create-project-cmd
-5. > 在mysql新增一資料庫，並在.env檔DB部分設定連結該資料庫
-6. > 下指令 php artisan migrate
-7. > 下指令 php artisan db:seed
+1. > 利用Source tree，來clone我們的系統 https://github.com/WISD-2018/final10.git
+2. > 打開Cmder輸入以下命令
+- cd final10 (clone下來的名稱)
+- composer install
+- composer run-script post-root-package-install
+- composer run-script post-create-project-cmd
+3. > 利用UwAmp，點選PHPMyAdmin，進入mysql的管理介面後，新增一個新的資料庫final10(自由命名)
+4. > 打開專案在.env檔設定連結資料庫
+- DB_PORT=33060
+- DB_DATABASE=final10(剛剛命名的名稱)
+- DB_USERNAME=root
+- DB_PASSWORD=root
+5. > 打開Cmder輸入以下命令，來建立資料表的屬性
+- php artisan migrate
+6. > 打開Cmder輸入以下命令，來建立所有測試資料
+-  php artisan db:seed
 
 ## 系統使用帳號
 1. default user
-> a.自行註冊
+> a.可以自行註冊
 
-> b.使用seed後的測試帳號，內已有30組帳號，密碼皆為：123456
+> b.或使用seed後的測試帳號，內已有30組帳號，密碼皆為：123456
 2. Admin
 > 帳號：admin@mail.com 密碼:admin
 
